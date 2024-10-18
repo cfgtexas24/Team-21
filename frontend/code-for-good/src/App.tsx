@@ -2,9 +2,15 @@ import "./App.css";
 
 function App() {
   return (
-    <>
-      <p className="text-3xl underline">Code For Good!!!</p>
-    </>
+    <div className="flex flex-col gap-6">
+      <p className="text-3xl underline">STORM</p>
+      <div>
+        <button>Login</button>
+      </div>
+      <div>
+        <button>Emergency Housing Form</button>
+      </div>
+    </div>
   );
 }
 
