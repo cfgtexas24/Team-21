@@ -16,20 +16,23 @@ import {
 
 function SignUp() {
   return (
-    <div className="flex flex-col grid-cols-12 gap-3 w-full">
+    <div className="flex flex-col">
       <p className="text-3xl">Sign Up</p>
-      <FormControl className="flex flex-col p-10 gap-y-5" isRequired>
-        <div>
+      <FormControl
+        className="grid grid-cols-12 space-x-1.5 p-3 gap-y-3"
+        isRequired
+      >
+        <div className="col-span-6">
           <FormLabel>First Name</FormLabel>
           <Input type="text" aria-label="first name" />
         </div>
 
-        <div>
+        <div className="col-span-6">
           <FormLabel>Last Name</FormLabel>
           <Input type="text" aria-label="last name" />
         </div>
 
-        <div>
+        <div className="col-span-12">
           <FormLabel>Age</FormLabel>
           <NumberInput max={28} min={14}>
             <NumberInputField />
@@ -40,7 +43,7 @@ function SignUp() {
           </NumberInput>
         </div>
 
-        <div>
+        <div className="col-span-12">
           <FormLabel>Gender</FormLabel>
           <Select placeholder="Select Gender">
             <option>Man</option>
@@ -49,9 +52,24 @@ function SignUp() {
           </Select>
         </div>
 
-        <div>
+        <div className="col-span-6">
+          <FormLabel>City</FormLabel>
+          <Input type="text" aria-label="last name" />
+        </div>
+
+        <div className="col-span-6">
+          <FormLabel>State</FormLabel>
+          <Input type="text" aria-label="last name" />
+        </div>
+
+        <div className="col-span-12">
+          <FormLabel>Zip Code</FormLabel>
+          <Input type="text" aria-label="last name" />
+        </div>
+
+        <div className="col-span-6">
           <FormLabel>Housing Status</FormLabel>
-          <RadioGroup className="flex items-left" defaultValue="Itachi">
+          <RadioGroup defaultValue="Unsheltered">
             <HStack spacing="24px">
               <Radio value="Unsheltered">Unsheltered</Radio>
               <Radio value="Sheltered">Sheltered</Radio>
