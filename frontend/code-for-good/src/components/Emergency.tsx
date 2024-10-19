@@ -32,7 +32,7 @@ const Emergency = () => {
       `Additional Information: ${additionalInfo}`;
 
     try {
-      const res = await fetch("http://localhost:5174/send-sms", {
+      const res = await fetch("http://100.117.211.125:5174/send-sms", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
