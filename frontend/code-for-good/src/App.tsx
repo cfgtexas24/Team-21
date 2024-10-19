@@ -7,6 +7,9 @@ import Mentor from "./components/Mentor";
 import Mentee from "./components/Mentee";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import { mockQuestions } from "./mockData/questions";
+import Lesson from "./components/lessons/Lesson";
+import { mockResources } from "./mockData/resources";
 import SignUpButtons from "./components/SignUpButtons";
 import Navbar from "./components/Navbar";
 import Chatroom from "./components/Chatroom";
@@ -28,10 +31,19 @@ function App() {
         <Route path="/chat" element={<Chatroom />} />
         <Route path="/mentee_home" element={<MenteeHome />} />
         <Route path="/skillgame" element={<Skillgame />} />
+        <Route
+          path="/lesson"
+          element={
+            <Lesson
+              topic={"Financial Literacy"}
+              questions={mockQuestions}
+              resources={mockResources}
+            />
+          }
+        />
         <Route path="/events" element={<EventPage />} />
       </Routes>
     </Router>
   );
 }
-
 export default App;
