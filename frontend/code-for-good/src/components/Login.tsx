@@ -6,62 +6,110 @@ import {
   Text,
   VStack,
   Link as ChakraLink,
+  useToast,
+  Container,
 } from "@chakra-ui/react";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
-const LogIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import { Link, useNavigate } from "react-router-dom";
 
-  const handleSubmit = () => {};
+const LogIn = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const toast = useToast();
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('http://localhost:5174/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+      
+      const data = await response.json();
+      console.log('Full server response:', data);
+
+      if (data.success) {
+        toast({
+          title: "Login Successful",
+          description: data.message,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        navigate('http://localhost:5173/mentee_home');
+      } else {
+        toast({
+          title: "Login Failed",
+          description: data.message,
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An error occurred while trying to log in",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      console.error('Login error:', error);
+    }
+
+    setUsername("");
+    setPassword("");
+  };
+
   return (
-    <div>
+    <>
       <Navbar />
-      <Box
-        width="100%"
-        height="80vh"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        bg="gray.100"
-      >
+      <Container maxW="container.xl" height="calc(100vh - 60px)">
         <Box
-          width="400px"
-          padding="1rem 2rem"
-          boxShadow="md"
-          bg="white"
-          borderRadius="md"
+          height="100%"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
         >
-          <VStack spacing={4} align="stretch">
-            <Text fontSize="4xl" marginBottom={4} textAlign="center">
-              Login
-            </Text>
-            <Input
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              placeholder="Password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Button colorScheme="teal" onClick={handleSubmit}>
-              Submit
-            </Button>
-            {/*Making link to redirect user to sign up instead*/}
-            {/** Make text asking Don't have an account?  (SignUp) link redirects u to  */}
-            <Text fontSize="sm" textAlign="center" className="my-4">
-              Don't have an account?{" "}
-              <Link to="/signup_redirect">
-                <ChakraLink color="teal.500">Sign Up</ChakraLink>
-              </Link>
-            </Text>
-          </VStack>
+          <Box
+            width="400px"
+            padding="2rem"
+            boxShadow="lg"
+            bg="white"
+            borderRadius="md"
+          >
+            <VStack spacing={6} align="stretch">
+              <Text fontSize="3xl" fontWeight="bold" textAlign="center">
+                Login
+              </Text>
+              <Input
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <Input
+                placeholder="Password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Button colorScheme="teal" onClick={handleSubmit}>
+                Log In
+              </Button>
+              <Text fontSize="sm" textAlign="center">
+                Don't have an account?{" "}
+                <Link to="/signup_redirect">
+                  <ChakraLink color="teal.500">Sign Up</ChakraLink>
+                </Link>
+              </Text>
+            </VStack>
+          </Box>
         </Box>
-      </Box>
-    </div>
+      </Container>
+    </>
   );
 };
 
