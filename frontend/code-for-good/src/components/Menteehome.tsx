@@ -67,7 +67,9 @@ const MenteeHome = () => {
             <Card variant="outline" maxW="sm" alignSelf="center" boxShadow="md">
               <CardBody>
                 <VStack spacing={3} align="stretch">
-                  <Heading size="md" alignSelf="center">Play Games</Heading>
+                  <Heading size="md" alignSelf="center">
+                    Play Games
+                  </Heading>
                   <Text>
                     Engage in fun and educational games to enhance your learning
                     experience.
