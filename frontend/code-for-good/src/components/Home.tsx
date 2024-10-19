@@ -9,7 +9,7 @@ const Home = () => {
       <p className="text-3xl underline">STORM</p>
       <div>
         <Link to="/login">
-          <Button>Login</Button>
+          <Button>Login / Sign Up</Button>
         </Link>
       </div>
       <div>
