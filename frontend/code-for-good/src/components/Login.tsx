@@ -47,26 +47,23 @@ const LogIn = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button colorScheme="teal" onClick={handleSubmit}>
-              Submit
-            </Button>
+            <Link
+              to="/mentee_home"
+              className="flex justify-center items-center"
+            >
+              <Button colorScheme="teal" onClick={handleSubmit}>
+                Submit
+              </Button>
+            </Link>
             {/*Making link to redirect user to sign up instead*/}
             {/** Make text asking Don't have an account?  (SignUp) link redirects u to  */}
-            <Text fontSize="sm" textAlign="center">
+            <Text fontSize="sm" textAlign="center" className="my-4">
               Don't have an account?{" "}
               <Link to="/signup_redirect">
                 <ChakraLink color="teal.500">Sign Up</ChakraLink>
               </Link>
             </Text>
           </VStack>
-          <div className="flex flex-col mt-6 mb-4 items-center gap-4">
-            <p>Don't have an account?</p>
-            <Link to="/signup">
-              <Button>
-                Sign Up
-              </Button>
-            </Link>
-          </div>
         </Box>
       </Box>
     </div>

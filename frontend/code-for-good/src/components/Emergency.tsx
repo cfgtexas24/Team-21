@@ -22,13 +22,12 @@ const Emergency = () => {
   const [additionalInfo, setAdditionalInfo] = useState("");
 
   const onSubmit = async (e: any) => {
-    e.preventDefault();
-
     const msg =
       `!!ALERT!! STORM Emergency Housing Request\n` +
       `Name: ${firstName} ${lastName}\n` +
       `Contact: ${phone}, ${email}\n` +
-      `Current Location: ${address}, ${city}, ${state} ${zip}`;
+      `Current Location: ${address}, ${city}, ${state} ${zip}\n` +
+      `Additional Information: ${additionalInfo}`;
 
     try {
       const res = await fetch("http://localhost:5174/send-sms", {

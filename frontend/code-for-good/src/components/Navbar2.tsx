@@ -22,11 +22,14 @@ const Navbar: React.FC = () => {
         </Link>
       </Box>
       <HStack spacing="24px">
-        <Link href="/">
+        <Link href="/mentee_home">
           <Button>Home</Button>
         </Link>
         <Link href="/housing_form">
           <Button>Emergency Housing</Button>
+        </Link>
+        <Link href="/chat">
+          <Button>Chat & Video</Button>
         </Link>
       </HStack>
     </Flex>
