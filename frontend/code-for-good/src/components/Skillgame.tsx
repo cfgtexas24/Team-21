@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Center, Text } from "@chakra-ui/react";
 import LevelButton from "./LevelButton";
 import Dot from "./Dot";
+import { Link } from "react-router-dom";
 import Navbar2 from "./Navbar2";
 // Function to generate dots in a line between two points
 const generateDotTrail = (startX: number, startY: number, endX: number, endY: number, numDots: number) => {
@@ -57,12 +58,14 @@ const Skillgame = () => {
         {/* Custom Zigzag Layout of Buttons and Dotted Trails */}
         <Box position="relative" width="100%" height="100%" maxWidth="600px" maxHeight="600px">
             {/* Button 1 */}
-            <LevelButton
-                level={1}
-                isCompleted={completedLevels.includes(1)}
-                onClick={() => handleLevelClick(1)}
-                style={{ top: "50px", left: "50px" }}  // Custom position
-            />
+            <Link to="/lesson">
+                <LevelButton
+                    level={1}
+                    isCompleted={completedLevels.includes(1)}
+                    onClick={() => handleLevelClick(1)}
+                    style={{ top: "50px", left: "50px" }}  // Custom position
+                />
+            </Link>
             {/* Dotted Trail 1 - More dots, farther from buttons */}
             {generateDotTrail(110, 100, 300, 190, 8)}
 
