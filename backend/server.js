@@ -73,18 +73,6 @@ app.post('/send-sms', async (req, res) => {
   }
 });
 
-io.on('connection', (socket) => {
-    console.log('New user connected');
-  
-    socket.on('sendMessage', (message) => {
-      io.emit('receiveMessage', message);
-    });
-  
-    socket.on('disconnect', () => {
-      console.log('User disconnected');
-    });
-});
-
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cfg-users.r8hu0.mongodb.net/?retryWrites=true&w=majority&appName=CFG-Users`;
 
 const client = new MongoClient(uri, {
@@ -103,12 +91,24 @@ async function run() {
 
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } catch (error) {
-    
+
     console.log("Mongo error: " + error);
   }
 }
 
+io.on('connection', (socket) => {
+  console.log('New user connected');
+
+  socket.on('sendMessage', (message) => {
+    io.emit('receiveMessage', message);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('User disconnected');
+  });
+});
+
 const PORT = 5174;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server running on http://172.20.10.3:${PORT}`);
 });
