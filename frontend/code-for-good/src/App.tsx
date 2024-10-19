@@ -11,7 +11,7 @@ import SignUp from "./components/SignUp";
 import { mockFinancialQuestions } from "./mockData/questions";
 import { mockCookingQuestions } from "./mockData/questions";
 import { mockFinancialResources } from "./mockData/resources";
-import { mockCookingResources } from "./mockData/cookingResources";
+import { mockCookingResources } from "./mockData/resources";
 import Lesson from "./components/lessons/Lesson";
 import SignUpButtons from "./components/SignUpButtons";
 import Chatroom from "./components/Chatroom";

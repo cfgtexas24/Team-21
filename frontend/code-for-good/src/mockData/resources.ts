@@ -1,5 +1,5 @@
 import { Resource } from "@/types/Types";
-export const mockResources: Resource[] = [
+export const mockFinancialResources: Resource[] = [
   {
     name: "Investopedia Basics",
     link: "https://www.investopedia.com/financial-term-dictionary-4769738",
@@ -35,5 +35,44 @@ export const mockResources: Resource[] = [
   {
     name: "Financial Literacy Resource Directory",
     link: "https://www.occ.gov/topics/consumers-and-communities/community-affairs/resource-directories/financial-literacy/index-financial-literacy-resource-directory.html",
+  },
+];
+
+export const mockCookingResources: Resource[] = [
+  {
+    name: "Serious Eats",
+    link: "https://www.seriouseats.com/",
+  },
+  {
+    name: "Food Network Recipes",
+    link: "https://www.foodnetwork.com/recipes",
+  },
+  {
+    name: "BBC Good Food",
+    link: "https://www.bbcgoodfood.com/",
+  },
+  {
+    name: "America's Test Kitchen",
+    link: "https://www.americastestkitchen.com/",
+  },
+  {
+    name: "Epicurious",
+    link: "https://www.epicurious.com/",
+  },
+  {
+    name: "Yummly",
+    link: "https://www.yummly.com/",
+  },
+  {
+    name: "AllRecipes",
+    link: "https://www.allrecipes.com/",
+  },
+  {
+    name: "New York Times Cooking",
+    link: "https://cooking.nytimes.com/",
+  },
+  {
+    name: "Simply Recipes",
+    link: "https://www.simplyrecipes.com/",
   },
 ];
