@@ -28,10 +28,19 @@ const Chat = () => {
 
   const sendMessage = () => {
     if (message.trim()) {
+      let sender = localStorage.getItem("chatUser");
+
+      // If no user is found in local storage, randomly assign one
+      if (!sender) {
+        sender = `user${Math.floor(Math.random() * 10) + 1}`;
+        localStorage.setItem("chatUser", sender); // Store the sender in local storage
+      }
+
       const newMessage = {
         text: message,
-        sender: "You",
+        sender: sender,
       };
+
       socket.emit("sendMessage", newMessage);
       setMessage("");
     }
