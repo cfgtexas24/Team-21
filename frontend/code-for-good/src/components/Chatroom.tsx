@@ -83,10 +83,10 @@ const Chatroom = () => {
       <Navbar2 />
       <div className="flex rounded border m-4 p-2 h-[35em]">
         <div className="flex flex-col border-r gap-4 p-4">
-          <Button onClick={() => setActiveTab("chat")} colorScheme="teal">
+          <Button onClick={() => setActiveTab("chat")} bg="#002982" color="white">
             Chat Room
           </Button>
-          <Button onClick={() => setActiveTab("video")} colorScheme="teal">
+          <Button onClick={() => setActiveTab("video")} bg="#002982" color="white">
             Meet with a Mentor
           </Button>
         </div>
@@ -126,7 +126,7 @@ const Chatroom = () => {
               </motion.div>
               <Button
                 onClick={createOffer}
-                colorScheme="teal"
+                bg="#002982" color="white"
                 width="40%"
                 marginTop="4"
               >

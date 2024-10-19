@@ -8,15 +8,16 @@ import Mentee from "./components/Mentee";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import { mockFinancialQuestions } from "./mockData/questions";
-import Lesson from "./components/lessons/Lesson";
+import { mockCookingQuestions } from "./mockData/cookingQuestions";
 import { mockResources } from "./mockData/resources";
+import { mockCookingResources } from "./mockData/cookingResources";
+import Lesson from "./components/lessons/Lesson";
 import SignUpButtons from "./components/SignUpButtons";
 import Chatroom from "./components/Chatroom";
 import MenteeHome from "./components/Menteehome";
 import Skillgame from "./components/Skillgame";
 import EventPage from "./components/Eventpage";
-import { mockCookingQuestions } from "./mockData/cookingQuestions";
-import { mockCookingResources } from "./mockData/cookingResources";
+import EventRegister from "./components/EventRegister";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/chat" element={<Chatroom />} />
         <Route path="/mentee_home" element={<MenteeHome />} />
         <Route path="/skillgame" element={<Skillgame />} />
+        <Route path="/events/register" element={<EventRegister />} />
         <Route
           path="/lesson1"
           element={

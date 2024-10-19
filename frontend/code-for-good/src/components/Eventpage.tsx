@@ -8,6 +8,7 @@ import {
   HStack,
   Button,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Firstpicture from "../assets/placeholder1.jpeg";
 import Secondpicture from "../assets/placeholder2.jpeg";
@@ -46,15 +47,19 @@ const EventPage: React.FC = () => {
               <Heading size="md" mb={4}>
                 Event 1
               </Heading>
-
-              <Text>
-                Date: Lorem ipsum dolor Description:sit amet, consectetur
-                adipiscing elit. Integer nec odio. Praesent libero. Sed cursus
-                ante dapibus diam.
+              <Text fontStyle="italic" mb={2}>
+                Date: January 1, 2023
               </Text>
-              <Button colorScheme="teal" mt={4} textAlign={"center"}>
-                Register
-              </Button>
+              <Text>
+                Description: Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
+                diam.
+              </Text>
+              <Link to="/events/register">
+                <Button colorScheme="teal" mt={4} textAlign={"center"}>
+                  Register
+                </Button>
+              </Link>
             </Box>
           </HStack>
         </Box>
@@ -78,14 +83,19 @@ const EventPage: React.FC = () => {
               <Heading size="md" mb={4}>
                 Event 2
               </Heading>
-              <Text>
-                Date: Lorem ipsum dolor Description:sit amet, consectetur
-                adipiscing elit. Integer nec odio. Praesent libero. Sed cursus
-                ante dapibus diam.
+              <Text fontStyle="italic" mb={2}>
+                Date: February 1, 2023
               </Text>
-              <Button colorScheme="teal" mt={4} textAlign={"center"}>
-                Register
-              </Button>
+              <Text>
+                Description: Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
+                diam.
+              </Text>
+              <Link to="/events/register">
+                <Button colorScheme="teal" mt={4} textAlign={"center"}>
+                  Register
+                </Button>
+              </Link>
             </Box>
           </HStack>
         </Box>
@@ -109,14 +119,19 @@ const EventPage: React.FC = () => {
               <Heading size="md" mb={4}>
                 Event 3
               </Heading>
-              <Text>
-                Date: Lorem ipsum dolor Description:sit amet, consectetur
-                adipiscing elit. Integer nec odio. Praesent libero. Sed cursus
-                ante dapibus diam.
+              <Text fontStyle="italic" mb={2}>
+                Date: March 1, 2023
               </Text>
-              <Button colorScheme="teal" mt={4} textAlign={"center"}>
-                Register
-              </Button>
+              <Text>
+                Description: Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
+                diam.
+              </Text>
+              <Link to="/events/register">
+                <Button colorScheme="teal" mt={4} textAlign={"center"}>
+                  Register
+                </Button>
+              </Link>
             </Box>
           </HStack>
         </Box>

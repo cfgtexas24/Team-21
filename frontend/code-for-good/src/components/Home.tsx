@@ -18,13 +18,13 @@ const Home = () => {
         padding="1.5rem"
         borderRadius="md"
         boxShadow="lg"
-        bg="teal.50"
+        bg="5176C8"
         maxWidth="350px"
         textAlign="center"
         marginBottom="2rem"
       >
         <VStack spacing={4}>
-          <Heading as="h1" size="2xl" color="teal.500" textShadow="1px 1px">
+          <Heading as="h1" size="2xl" color="#002982" textShadow="1px 1px">
             STORM
           </Heading>
           <Text fontSize="lg" color="gray.600" fontStyle="italic">
@@ -32,14 +32,14 @@ const Home = () => {
           </Text>
           <Box width="100%">
             <Link to="/login">
-              <Button width="100%" colorScheme="teal">
+              <Button width="100%" bg="#5176C8" color="white" _hover={{ bg: '#3f5fa7' }}>
                 Login / Signup
               </Button>
             </Link>
           </Box>
           <Box width="100%">
             <Link to="/housing_form">
-              <Button width="100%" colorScheme="teal">
+              <Button width="100%" bg="#E1BA00" color="white" _hover={{ bg: '#3f5fa7' }}>
                 Emergency Housing Form
               </Button>
             </Link>

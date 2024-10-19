@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
       align="center"
       justify="space-between"
       padding="1em"
-      bg="teal.500"
+      bg="#5176C8"
       color="white"
       width="100%"
       top="0"

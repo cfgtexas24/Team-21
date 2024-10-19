@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-
 import {
+  Box,
   Button,
   FormControl,
   FormLabel,
   Input,
   InputGroup,
   InputLeftAddon,
+  VStack,
+  Text,
 } from "@chakra-ui/react";
 
 const Emergency = () => {
@@ -22,6 +24,7 @@ const Emergency = () => {
   const [additionalInfo, setAdditionalInfo] = useState("");
 
   const onSubmit = async (e: any) => {
+    e.preventDefault();
     const msg =
       `!!ALERT!! STORM Emergency Housing Request\n` +
       `Name: ${firstName} ${lastName}\n` +
@@ -50,20 +53,30 @@ const Emergency = () => {
   };
 
   return (
-    <div>
+    <Box bg="gray.100" minHeight="100vh" display="flex" flexDirection="column">
       <Navbar />
-      <div className="flex flex-col justify-center items-center gap-4 my-20">
-        <div className="flex flex-col w-1/2 gap-4 justify-center items-center text-center">
-          <h1 className="font-bold">Get Help from STORM</h1>
-          <p>
+      <Box
+        bg="white"
+        borderRadius="lg"
+        boxShadow="md"
+        padding="6"
+        margin="20px auto"
+        width="80%"
+        maxWidth="600px"
+      >
+        <Box textAlign="center" mb={4}>
+          <Text fontSize="2xl" fontWeight="bold">
+            Get Help from STORM
+          </Text>
+          <Text>
             STORM Center of Hope & Service is here for you. Fill out the form
             below if you need IMMEDIATE housing assistance. We will contact you
             within 24 hours with more information.
-          </p>
-        </div>
-        <form onSubmit={onSubmit} className="flex flex-col w-2/3 gap-4">
-          <FormControl isRequired className="flex flex-col gap-4">
-            <div>
+          </Text>
+        </Box>
+        <form onSubmit={onSubmit}>
+          <VStack spacing={4}>
+            <FormControl isRequired>
               <FormLabel>First Name</FormLabel>
               <Input
                 type="text"
@@ -71,8 +84,8 @@ const Emergency = () => {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
-            </div>
-            <div>
+            </FormControl>
+            <FormControl isRequired>
               <FormLabel>Last Name</FormLabel>
               <Input
                 type="text"
@@ -80,8 +93,8 @@ const Emergency = () => {
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
-            </div>
-            <div>
+            </FormControl>
+            <FormControl isRequired>
               <FormLabel>Email Address</FormLabel>
               <Input
                 type="email"
@@ -89,8 +102,8 @@ const Emergency = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-            </div>
-            <div>
+            </FormControl>
+            <FormControl isRequired>
               <FormLabel>Phone Number</FormLabel>
               <InputGroup>
                 <InputLeftAddon>+1</InputLeftAddon>
@@ -101,44 +114,40 @@ const Emergency = () => {
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </InputGroup>
-            </div>
-          </FormControl>
-          <FormControl className="flex flex-col gap-4">
-            <div>
+            </FormControl>
+            <FormControl>
               <FormLabel>Current Address</FormLabel>
               <Input
                 type="text"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
               />
-            </div>
-            <div>
+            </FormControl>
+            <FormControl>
               <FormLabel>Current City</FormLabel>
               <Input
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
               />
-            </div>
-            <div>
+            </FormControl>
+            <FormControl>
               <FormLabel>Current State</FormLabel>
               <Input
                 type="text"
                 value={state}
                 onChange={(e) => setState(e.target.value)}
               />
-            </div>
-            <div>
+            </FormControl>
+            <FormControl>
               <FormLabel>Current Zip Code</FormLabel>
               <Input
                 type="text"
                 value={zip}
                 onChange={(e) => setZip(e.target.value)}
               />
-            </div>
-          </FormControl>
-          <FormControl isRequired className="flex flex-col gap-4">
-            <div>
+            </FormControl>
+            <FormControl isRequired>
               <FormLabel>
                 Please provide us with any additional information you would like
                 us to know about you.
@@ -148,12 +157,14 @@ const Emergency = () => {
                 value={additionalInfo}
                 onChange={(e) => setAdditionalInfo(e.target.value)}
               />
-            </div>
-          </FormControl>
-          <Button type="submit">Submit</Button>
+            </FormControl>
+            <Button type="submit" bg="#002982" color={"white"} width="full">
+              Submit
+            </Button>
+          </VStack>
         </form>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

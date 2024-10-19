@@ -67,7 +67,8 @@ const Skillgame = () => {
           position="absolute"
           top="2rem"
           right="13rem"
-          bg="green.200"
+          bg="#002982"
+          color="white"
           padding="2rem" // Increased padding for a bigger box
           width="220px" // Set a larger width for the box
           borderRadius="lg"

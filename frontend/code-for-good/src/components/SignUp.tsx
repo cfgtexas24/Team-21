@@ -14,109 +14,106 @@ import {
   RadioGroup,
   HStack,
   Button,
+  useToast,
+  VStack,
 } from "@chakra-ui/react";
 
 function SignUp() {
   const {
+    register,
     handleSubmit,
     formState: { isSubmitting },
   } = useForm();
+  const toast = useToast();
 
-  function onSubmit(values: object) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-        resolve(1);
-      }, 3000);
-    });
+  async function onSubmit(values) {
+    try {
+      const response = await fetch('http://localhost:5174/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Sign-up successful",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      } else {
+        throw new Error(data.message || "Sign-up failed");
+      }
+    } catch (error) {
+      toast({
+        title: "Error signing up",
+        description: error.message || "An unexpected error occurred",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   }
 
   return (
-    <div className="flex justify-center items-center m-10">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col w-1/2 justify-center items-center"
-      >
-        <p className="text-3xl">Sign Up</p>
-        <FormControl className="grid grid-cols-12 p-3 gap-x-1 gap-y-3">
-          <FormControl className="col-span-6">
-            <FormLabel>First Name</FormLabel>
-            <Input type="text" aria-label="first name" />
-          </FormControl>
-
-          <FormControl className="col-span-6">
-            <FormLabel>Last Name</FormLabel>
-            <Input type="text" aria-label="last name" />
-          </FormControl>
-
-          <FormControl className="col-span-12">
-            <FormLabel>Age</FormLabel>
-            <NumberInput max={28} min={14}>
-              <NumberInputField />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>
-          </FormControl>
-
-          <FormControl className="col-span-12">
-            <FormLabel>Gender</FormLabel>
-            <Select placeholder="Select Gender">
-              <option>Man</option>
-              <option>Woman</option>
-              <option>Other</option>
-            </Select>
-          </FormControl>
-
-          <FormControl className="col-span-12">
-            <FormLabel>Email</FormLabel>
-            <Input
-              placeholder="example@email.com"
-              type="text"
-              aria-label="last name"
-            />
-          </FormControl>
-
-          <FormControl className="col-span-12">
-            <FormLabel>Phone Number</FormLabel>
-            <Input
-              placeholder="+1 (123)-456-7890"
-              type="text"
-              aria-label="last name"
-            />
-          </FormControl>
-
-          <FormControl className="col-span-6">
-            <FormLabel>City</FormLabel>
-            <Input type="text" aria-label="last name" />
-          </FormControl>
-
-          <FormControl className="col-span-6">
-            <FormLabel>State</FormLabel>
-            <Input type="text" aria-label="last name" />
-          </FormControl>
-
-          <FormControl className="col-span-12 space-x-1">
-            <FormLabel>Zip Code</FormLabel>
-            <Input type="text" aria-label="last name" />
-          </FormControl>
-
-          <FormControl className="col-span-6">
-            <FormLabel>Housing Status</FormLabel>
-            <RadioGroup defaultValue="Unsheltered">
-              <HStack spacing="24px">
-                <Radio value="Unsheltered">Unsheltered</Radio>
-                <Radio value="Sheltered">Sheltered</Radio>
-              </HStack>
-            </RadioGroup>
-          </FormControl>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <VStack spacing={4} align="stretch">
+        <FormControl isRequired>
+          <FormLabel>Name</FormLabel>
+          <Input {...register("name")} placeholder="Enter your name" />
         </FormControl>
-        <Button mt={4} isLoading={isSubmitting} type="submit">
+
+        <FormControl isRequired>
+          <FormLabel>Email</FormLabel>
+          <Input {...register("email")} type="email" placeholder="Enter your email" />
+        </FormControl>
+
+        <FormControl isRequired>
+          <FormLabel>Age</FormLabel>
+          <NumberInput min={18} max={100}>
+            <NumberInputField {...register("age")} />
+            <NumberInputStepper>
+              <NumberIncrementStepper />
+              <NumberDecrementStepper />
+            </NumberInputStepper>
+          </NumberInput>
+        </FormControl>
+
+        <FormControl isRequired>
+          <FormLabel>Gender</FormLabel>
+          <RadioGroup defaultValue="male">
+            <HStack spacing={4}>
+              <Radio {...register("gender")} value="male">Male</Radio>
+              <Radio {...register("gender")} value="female">Female</Radio>
+              <Radio {...register("gender")} value="other">Other</Radio>
+            </HStack>
+          </RadioGroup>
+        </FormControl>
+
+        <FormControl isRequired>
+          <FormLabel>Education Level</FormLabel>
+          <Select {...register("educationLevel")} placeholder="Select education level">
+            <option value="highschool">High School</option>
+            <option value="bachelor">Bachelor's Degree</option>
+            <option value="master">Master's Degree</option>
+            <option value="phd">PhD</option>
+          </Select>
+        </FormControl>
+
+        <FormControl>
+          <FormLabel>Additional Comments</FormLabel>
+          <Input {...register("comments")} placeholder="Any additional information" />
+        </FormControl>
+
+        <Button mt={4} colorScheme="blue" isLoading={isSubmitting} type="submit">
           Submit
         </Button>
-      </form>
-    </div>
+      </VStack>
+    </form>
   );
 }
 

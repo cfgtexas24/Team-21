@@ -201,7 +201,7 @@ const Mentor = () => {
               </NumberInput>
             </FormControl>
 
-            <Button colorScheme="teal" type="submit">
+            <Button bg="#002982" type="submit">
               Submit
             </Button>
           </VStack>
