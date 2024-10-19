@@ -2,10 +2,13 @@ import { Button, Input } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5174");
+const socket = io("http://100.117.211.125:5174");
 
 const Chat = () => {
-  const [messages, setMessages] = useState<any>([]);
+  const [messages, setMessages] = useState<any>([
+    { text: "welcome to STORM chat!", sender: "STORM" },
+    { text: "hello everyone", sender: "user1" },
+  ]);
   const [message, setMessage] = useState("");
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
@@ -20,7 +23,6 @@ const Chat = () => {
   }, []);
 
   useEffect(() => {
-    // Scroll to the bottom whenever messages change
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
@@ -50,11 +52,11 @@ const Chat = () => {
           <>
             <div
               className={`message ${
-                msg.sender === "You" ? "bg-blue-100" : "bg-white"
+                msg.sender === "You" ? "bg-blue-100" : "bg-white border"
               } inline-block max-w-[80%] p-2 rounded-md`}
               key={index}
             >
-              <strong>User:</strong> {msg.text}
+              <strong>{msg.sender}: </strong> {msg.text}
             </div>
             <br />
           </>

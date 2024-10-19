@@ -28,7 +28,7 @@ const SignUpButtons = () => {
           bg="white"
           borderRadius="md"
         >
-          <VStack spacing={4} align="stretch">
+          <VStack spacing={4} align="stretch" className="mb-4">
             <Text fontSize="4xl" marginBottom={4} textAlign="center">
               Sign up
             </Text>

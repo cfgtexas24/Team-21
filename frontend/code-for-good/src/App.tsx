@@ -25,7 +25,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signup_redirect" element={<SignUpButtons />} />
         <Route path="/chat" element={<Chatroom />} />
-        <Route path="/mentee-home" element={<MenteeHome />} />
+        <Route path="/mentee_home" element={<MenteeHome />} />
       </Routes>
     </Router>
   );

@@ -52,21 +52,13 @@ const LogIn = () => {
             </Button>
             {/*Making link to redirect user to sign up instead*/}
             {/** Make text asking Don't have an account?  (SignUp) link redirects u to  */}
-            <Text fontSize="sm" textAlign="center">
+            <Text fontSize="sm" textAlign="center" className="my-4">
               Don't have an account?{" "}
               <Link to="/signup_redirect">
                 <ChakraLink color="teal.500">Sign Up</ChakraLink>
               </Link>
             </Text>
           </VStack>
-          <div className="flex flex-col mt-6 mb-4 items-center gap-4">
-            <p>Don't have an account?</p>
-            <Link to="/signup">
-              <Button>
-                Sign Up
-              </Button>
-            </Link>
-          </div>
         </Box>
       </Box>
     </div>
