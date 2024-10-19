@@ -7,9 +7,10 @@ interface QuizProps {
   topic: string;
   questions: Question[];
   resources: Resource[];
+  setPassed: (bool: boolean) => void;
 }
 
-const Quiz = ({ topic, questions, resources }: QuizProps) => {
+const Quiz = ({ topic, questions, resources, setPassed }: QuizProps) => {
   const [score, setScore] = useState<number>(0);
   const [active, setActive] = useState<number>(0);
 
@@ -22,6 +23,7 @@ const Quiz = ({ topic, questions, resources }: QuizProps) => {
 
   if (active >= questions.length) {
     // send score to db
+    setPassed(score / questions.length >= 0.7);
     return (
       <div className="quiz-end-screen">
         <ScoreSummary
