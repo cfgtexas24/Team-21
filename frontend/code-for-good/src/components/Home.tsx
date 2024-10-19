@@ -1,7 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Button, Text, VStack } from "@chakra-ui/react";
-import Navbar from "./Navbar";
 
 const Home = () => {
   return (
@@ -13,7 +11,7 @@ const Home = () => {
           </Text>
           <Box>
             <Link to="/login">
-              <Button>Login</Button>
+              <Button>Login / Signup</Button>
             </Link>
           </Box>
           <Box>

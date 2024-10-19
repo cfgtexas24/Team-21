@@ -5,9 +5,7 @@ const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
-    // Handle login logic here
-  };
+  const handleSubmit = () => {};
 
   return (
     <Box
@@ -20,7 +18,7 @@ const LogIn = () => {
     >
       <Box
         width="400px"
-        padding="1rem 2rem" // Reduced top padding
+        padding="1rem 2rem"
         boxShadow="md"
         bg="white"
         borderRadius="md"

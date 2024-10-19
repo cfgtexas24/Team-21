@@ -1,7 +1,184 @@
-import React from "react";
+import { useState } from "react";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Heading,
+  Icon,
+  Link,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  Input,
+  Checkbox,
+  Progress,
+  Radio,
+  RadioGroup,
+  Stack,
+  Textarea,
+  FormHelperText,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  VStack,
+  StackDivider,
+  InputGroup,
+  InputLeftAddon,
+} from "@chakra-ui/react";
 
 const Mentor = () => {
-  return <div>Mentor</div>;
+  // Define state variables for each form field
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    city: "",
+    state: "",
+    age: "",
+  });
+
+  // Handle input change and update state
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission normally send the data to backend
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(formData); // for now, just log the data to the console
+
+    // Reset the form data to blank values
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      city: "",
+      state: "",
+      age: "",
+    });
+  };
+
+  return (
+    <Box w={500} p={4} m="20px auto">
+      <Heading as="h1" size="xl" textAlign="center">
+        Mentor Form
+      </Heading>
+      <Heading as="h2" size="l" textAlign="center" m={5}>
+        Apply To Be A Mentor
+      </Heading>
+
+      <Box
+        as="form"
+        p={4}
+        borderWidth="1px"
+        borderRadius="lg"
+        boxShadow="1px 1px 3px rgba(0,0,0,0.3)"
+        onSubmit={handleSubmit} // Attach handleSubmit to the form's onSubmit event
+      >
+        <VStack
+          divider={<StackDivider borderColor="gray.200" />}
+          spacing={4}
+          align="stretch"
+        >
+          <FormControl isRequired>
+            <FormLabel>First name</FormLabel>
+            <Input
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              placeholder="First name"
+            />
+          </FormControl>
+
+          <FormControl isRequired>
+            <FormLabel>Last Name</FormLabel>
+            <Input
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              placeholder="Last Name"
+            />
+          </FormControl>
+
+          <FormControl isRequired>
+            <FormLabel>Email address</FormLabel>
+            <Input
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <FormHelperText>
+              Enter the email you'd like us to contact you with.
+            </FormHelperText>
+          </FormControl>
+
+          <InputGroup>
+            <InputLeftAddon>+1</InputLeftAddon>
+            <Input
+              name="phoneNumber"
+              type="tel"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              placeholder="phone number"
+            />
+          </InputGroup>
+
+          <FormControl>
+            <FormLabel>City</FormLabel>
+            <Input
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+              placeholder="City"
+            />
+          </FormControl>
+
+          <FormControl>
+            <FormLabel>State</FormLabel>
+            <Input
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              placeholder="State"
+            />
+          </FormControl>
+
+          <FormControl>
+            <FormLabel>Age</FormLabel>
+            <NumberInput
+              name="age"
+              value={formData.age}
+              onChange={(valueString) =>
+                setFormData((prevData) => ({
+                  ...prevData,
+                  age: valueString,
+                }))
+              }
+            >
+              <NumberInputField />
+              <NumberInputStepper>
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
+            </NumberInput>
+          </FormControl>
+
+          <Button colorScheme="blue" type="submit">
+            Submit
+          </Button>
+        </VStack>
+      </Box>
+    </Box>
+  );
 };
 
 export default Mentor;
