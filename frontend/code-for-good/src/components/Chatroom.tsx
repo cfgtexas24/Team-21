@@ -81,52 +81,18 @@ const Chatroom = () => {
   return (
     <>
       <Navbar2 />
-      <Box
-        width="100%"
-        height="100vh"
-        display="flex"
-        bg="gray.100"
-        padding="2rem"
-      >
-        <VStack spacing={4} align="stretch" width="200px" padding="2rem">
-          <Button
-            onClick={() => setActiveTab("chat")}
-            colorScheme="teal"
-            width={150}
-          >
+      <div className="flex rounded border m-4 p-2 h-[40em]">
+        <div className="flex flex-col border-r gap-4 p-4">
+          <Button onClick={() => setActiveTab("chat")} colorScheme="teal">
             Chat Room
           </Button>
-          <Button
-            onClick={() => {
-              setActiveTab("video");
-              createOffer();
-            }}
-            colorScheme="teal"
-            width={150}
-          >
+          <Button onClick={() => setActiveTab("video")} colorScheme="teal">
             Meet with a Mentor
           </Button>
-        </VStack>
-        <Box
-          flex="1"
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          padding="1rem"
-        >
-          <Box
-            borderWidth="1px"
-            borderRadius="lg"
-            padding="6"
-            bg="white"
-            boxShadow="md"
-            width="100%"
-            height="70vh"
-            overflow="hidden"
-            position="relative"
-          >
-            {activeTab === "video" ? (
+        </div>
+        <div className="flex w-full">
+          {activeTab === "video" ? (
+            <div className="flex flex-col items-center">
               <motion.div
                 className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center"
                 initial={{ opacity: 0 }}
@@ -158,22 +124,20 @@ const Chatroom = () => {
                   />
                 </Box>
               </motion.div>
-            ) : (
-              <Chat />
-            )}
-          </Box>
-          {activeTab === "video" && (
-            <Button
-              onClick={createOffer}
-              colorScheme="teal"
-              width="40%"
-              marginTop="4"
-            >
-              Start Video Chat
-            </Button>
+              <Button
+                onClick={createOffer}
+                colorScheme="teal"
+                width="40%"
+                marginTop="4"
+              >
+                Start Video Chat
+              </Button>
+            </div>
+          ) : (
+            <Chat />
           )}
-        </Box>
-      </Box>
+        </div>
+      </div>
     </>
   );
 };
