@@ -27,6 +27,7 @@ import {
   InputGroup,
   InputLeftAddon,
 } from "@chakra-ui/react";
+import React from "react";
 
 const Mentor = () => {
   // Define state variables for each form field
@@ -67,7 +68,7 @@ const Mentor = () => {
   };
 
   return (
-    <Box w={500} p={4} m="20px auto">
+    <Box w={700} p={4} m="20px auto">
       <Heading as="h1" size="xl" textAlign="center">
         Mentor Form
       </Heading>
