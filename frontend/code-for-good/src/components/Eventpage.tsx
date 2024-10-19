@@ -58,7 +58,7 @@ const EventPage: React.FC = () => {
                 together!
               </Text>
               <Link to="/events/register">
-                <Button colorScheme="teal" mt={4} textAlign={"center"}>
+                <Button bg="#002982" color="white" mt={4} textAlign={"center"}>
                   Register
                 </Button>
               </Link>
@@ -95,7 +95,7 @@ const EventPage: React.FC = () => {
                 challenges and thrive in their personal and academic lives.
               </Text>
               <Link to="/events/register">
-                <Button colorScheme="teal" mt={4} textAlign={"center"}>
+                <Button  bg="#002982" color="white" mt={4} textAlign={"center"}>
                   Register
                 </Button>
               </Link>
@@ -133,7 +133,7 @@ const EventPage: React.FC = () => {
                 in our community.
               </Text>
               <Link to="/events/register">
-                <Button colorScheme="teal" mt={4} textAlign={"center"}>
+                <Button  bg="#002982" color="white" mt={4} textAlign={"center"}>
                   Register
                 </Button>
               </Link>
