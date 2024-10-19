@@ -84,7 +84,7 @@ const ScheduleModal: React.FC<ScheduleAppointmentProps> = ({
         </div>
         <button
           onClick={handleSubmit}
-          className="mt-4 bg-teal-500 text-white py-2 px-4 rounded"
+          className="mt-4 bg-blue-900 text-white py-2 px-4 rounded"
         >
           Schedule
         </button>

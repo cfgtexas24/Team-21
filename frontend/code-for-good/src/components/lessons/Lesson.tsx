@@ -38,17 +38,23 @@ const Lesson = ({ topic, questions, resources }: LessonProps) => {
         <div className="flex justify-between p-5">
           {
             <Link to="/skillgame">
-              <Button colorScheme="teal">Back</Button>
+              <Button bg="#002982" color="white">
+                Back
+              </Button>
             </Link>
           }
           {(finished && passed && (
             <Link to="/skillgame">
-              <Button colorScheme="teal">Next Lesson!</Button>
+              <Button bg="#002982" color="white">
+                Next Lesson!
+              </Button>
             </Link>
           )) ||
             (finished && (
               <Link to="/lesson" onClick={() => window.location.reload()}>
-                <Button colorScheme="teal">Try Again</Button>
+                <Button bg="#002982" color="white">
+                  Try Again
+                </Button>
               </Link>
             ))}
         </div>

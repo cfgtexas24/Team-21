@@ -13,11 +13,11 @@ const ProgressBar = ({ progress, total }: ProgressBarProps) => {
       <Progress
         value={progressPercentage}
         size="md"
-        colorScheme="teal"
+        colorScheme="blue"
         className="bg-gray-200 rounded-lg"
       />
       <div className="text-center mt-2">
-        {progress} / {total}
+        {progress} / {total} ({progressPercentage.toFixed(2)}%)
       </div>
     </Box>
   );

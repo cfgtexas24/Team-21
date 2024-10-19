@@ -68,7 +68,8 @@ const QuizQuestion = ({
             </RadioGroup>
             <div className="grid justify-items-end">
               <Button
-                colorScheme="teal"
+                bg="#002982"
+                color="white"
                 onClick={() => {
                   console.log("clicked next");
                   handleAnswer(selectedAnswer);
