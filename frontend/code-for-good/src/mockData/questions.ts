@@ -3,6 +3,7 @@ export const mockFinancialQuestions: Question[] = [
   {
     body: "What percentage of your income is recommended to save for future goals?",
     answers: ["5%", "10%", "20%", "50%"],
+    video: "https://www.youtube.com/embed/LKxOamnP8J4?si=2hp6yBCW5S9kJE4G",
     correctAnswer: 2, // 20% is the correct answer
   },
   {
