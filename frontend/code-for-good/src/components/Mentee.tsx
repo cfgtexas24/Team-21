@@ -218,7 +218,7 @@ const Mentee = () => {
                       isChecked={interests.stormProgram}
                       onChange={handleCheckboxChange}
                     >
-                      Joining STORM and having access to all programs
+                      Learning more development skills
                     </Checkbox>
                   </Flex>
                 </CardBody>
