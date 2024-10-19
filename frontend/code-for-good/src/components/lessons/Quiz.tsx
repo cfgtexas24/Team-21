@@ -21,6 +21,7 @@ const Quiz = ({ topic, questions, resources }: QuizProps) => {
   };
 
   if (active >= questions.length) {
+    // send score to db
     return (
       <div className="quiz-end-screen">
         <ScoreSummary
