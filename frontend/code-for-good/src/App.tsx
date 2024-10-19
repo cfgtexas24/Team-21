@@ -8,8 +8,8 @@ import Mentee from "./components/Mentee";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import { mockFinancialQuestions } from "./mockData/questions";
-import { mockCookingQuestions } from "./mockData/cookingQuestions";
-import { mockResources } from "./mockData/resources";
+import { mockCookingQuestions } from "./mockData/questions";
+import { mockFinancialResources } from "./mockData/resources";
 import { mockCookingResources } from "./mockData/cookingResources";
 import Lesson from "./components/lessons/Lesson";
 import SignUpButtons from "./components/SignUpButtons";
@@ -41,7 +41,7 @@ function App() {
             <Lesson
               topic={"Financial Literacy"}
               questions={mockFinancialQuestions}
-              resources={mockResources}
+              resources={mockFinancialResources}
             />
           }
         />
