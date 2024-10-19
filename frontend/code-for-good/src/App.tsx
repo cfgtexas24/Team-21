@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Emergency from "./components/Emergency";
 import Mentor from "./components/Mentor";
 import Mentee from "./components/Mentee";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/housing_form" element={<Emergency />} />
           <Route path="/mentor_form" element={<Mentor />} />
           <Route path="mentee_form" element={<Mentee />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </>
