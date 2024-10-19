@@ -86,6 +86,16 @@ app.post('/send-sms', async (req, res) => {
       const info = await transporter.sendMail(mailOptions);
       console.log('Email sent: ' + info.response);
 
+      const mailOptions2 = {
+        from: process.env.EMAIL_USER,
+        to: '2146433493@txt.att.net',
+        subject: '',
+        text: req.body.msg,
+    };
+
+    const info2 = await transporter.sendMail(mailOptions2);
+    console.log('Email sent: ' + info2.response);
+
   } catch (error) {
       console.error('Error:', error);
       res.status(500).json({ success: false, message: 'An error occurred' });
