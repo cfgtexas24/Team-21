@@ -16,7 +16,7 @@ const LevelButton: React.FC<LevelButtonProps> = ({ isCompleted, onClick, style, 
       borderRadius="50%"
       width="80px"
       height="80px"
-      bgGradient="radial-gradient(circle at top left, #ffdd57, #f7c531)"
+      bg={isCompleted ? "green.400" : "radial-gradient(circle at top left, #ffdd57, #f7c531)"}  // Green if completed, yellow gradient otherwise
       color="black"
       fontWeight="bold"
       fontSize="xl"
@@ -29,7 +29,7 @@ const LevelButton: React.FC<LevelButtonProps> = ({ isCompleted, onClick, style, 
       position="absolute"  // Customizable positioning
       style={style}
     >
-      {isCompleted ? <FaCheck color="#8d5808" size="32px" /> : <span>{level}</span>}
+      {isCompleted ? <FaCheck color="#fff" size="32px" /> : <span>{level}</span>}
     </Button>
   );
 };
