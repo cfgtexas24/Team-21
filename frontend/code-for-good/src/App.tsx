@@ -9,6 +9,9 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Quiz from "./components/lessons/Quiz";
 import { mockQuestions } from "./mockData/questions";
+import Navbar from "./components/Navbar";
+import Chatroom from "./components/Chatroom";
+import MenteeHome from "./components/Menteehome";
 
 function App() {
   return (
@@ -26,7 +29,6 @@ function App() {
         </Routes>
       </Router>
     </>
-  );
+  )
 }
-
 export default App;

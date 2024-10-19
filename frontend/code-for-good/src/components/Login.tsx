@@ -1,38 +1,52 @@
 import React, { useState } from "react";
-import { Input, Button, Text } from "@chakra-ui/react";
-
-const Login = () => {
+import { Box, Button, Input, Text, VStack } from "@chakra-ui/react";
+import Navbar from "./Navbar";
+const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
-  };
-
+  const handleSubmit = () => {};
   return (
-    <div className="login-container">
-      <Text fontSize="4xl" marginBottom={4}>
-        Login
-      </Text>
-      <Input
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <Input
-        placeholder="Password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        marginTop={4}
-      />
-      <Button marginTop={4} onClick={handleSubmit}>
-        Submit
-      </Button>
+    <div>  
+      <Navbar />
+      <Box
+        width="100%"
+        height="80vh"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        bg="gray.100"
+      >
+        <Box
+          width="400px"
+          padding="1rem 2rem"
+          boxShadow="md"
+          bg="white"
+          borderRadius="md"
+        >
+          <VStack spacing={4} align="stretch">
+            <Text fontSize="4xl" marginBottom={4} textAlign="center">
+              Login
+            </Text>
+            <Input
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button colorScheme="teal" onClick={handleSubmit}>
+              Submit
+            </Button>
+          </VStack>
+        </Box>
+      </Box>
     </div>
   );
 };
 
-export default Login;
+export default LogIn;

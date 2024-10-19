@@ -23,7 +23,6 @@ function SignUp() {
   } = useForm();
 
   function onSubmit(values: object) {
-    // insert into database
     return new Promise((resolve) => {
       setTimeout(() => {
         alert(JSON.stringify(values, null, 2));

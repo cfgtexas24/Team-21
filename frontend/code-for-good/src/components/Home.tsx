@@ -1,21 +1,27 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { Box, Button, Text, VStack } from "@chakra-ui/react";
 import "../index.css";
-import { Button } from "@chakra-ui/react";
-
 const Home = () => {
   return (
-    <div className="flex flex-col gap-6">
-      <p className="text-3xl underline">STORM</p>
-      <div>
-        <Link to="/login">
-          <Button>Login</Button>
-        </Link>
-      </div>
-      <div>
-        <Link to="/housing_form">
-          <Button>Emergency Housing Form</Button>
-        </Link>
+    <div className="home-background">
+      <div className="home-content flex flex-col gap-6">
+        <Box paddingTop="4.5rem">
+          <VStack spacing={6}>
+            <Text fontSize="3xl" textDecoration="underline">
+              STORM
+            </Text>
+            <Box>
+              <Link to="/login">
+                <Button>Login / Signup</Button>
+              </Link>
+            </Box>
+            <Box>
+              <Link to="/housing_form">
+                <Button>Emergency Housing Form</Button>
+              </Link>
+            </Box>
+          </VStack>
+        </Box>
       </div>
     </div>
   );
