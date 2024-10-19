@@ -2,7 +2,7 @@ import { Button, Input } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5174");
+const socket = io("http://100.117.211.125:5174");
 
 const Chat = () => {
   const [messages, setMessages] = useState<any>([
