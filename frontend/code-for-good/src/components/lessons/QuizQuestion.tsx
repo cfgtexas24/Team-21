@@ -5,6 +5,10 @@ import {
   Stack,
   Radio,
   Button,
+  Card,
+  CardHeader,
+  Heading,
+  CardBody,
 } from "@chakra-ui/react";
 
 interface QuizQuestionProps {
@@ -25,39 +29,49 @@ const QuizQuestion = ({
 }: QuizQuestionProps) => {
   const [selectedAnswer, setSelectedAnswer] = useState<number>(0);
   return (
-    <form className="quiz-question quiz-container rounded-md border-solid border-black">
-      <p id={"q-" + key}>Question {id + 1}</p>
-      <p className="question-body">{question}</p>
-      <FormControl>
-        <RadioGroup defaultValue={answers[0]}>
-          <Stack direction="column">
-            {answers.map((answer, index) => {
-              return (
-                <Radio
-                  name={"answer"}
-                  key={index}
-                  value={answer}
-                  onChange={() => {
-                    setSelectedAnswer(index);
-                  }}
-                >
-                  {answer}
-                </Radio>
-              );
-            })}
-          </Stack>
-        </RadioGroup>
-        <Button
-          className="justify-end"
-          onClick={() => {
-            console.log("clicked next");
-            handleAnswer(selectedAnswer);
-          }}
+    <Card maxW="md">
+      <CardHeader>
+        <Heading size="md">Question {id + 1}</Heading>
+      </CardHeader>
+      <CardBody>
+        <form
+          id={"q-" + key}
+          className="quiz-question quiz-container rounded-md border-solid border-black"
         >
-          {"Next"}
-        </Button>
-      </FormControl>
-    </form>
+          <p className="question-body">{question}</p>
+          <FormControl>
+            <RadioGroup defaultValue={answers[0]}>
+              <Stack direction="column">
+                {answers.map((answer, index) => {
+                  return (
+                    <Radio
+                      name={"answer"}
+                      key={index}
+                      value={answer}
+                      onChange={() => {
+                        setSelectedAnswer(index);
+                      }}
+                    >
+                      {answer}
+                    </Radio>
+                  );
+                })}
+              </Stack>
+            </RadioGroup>
+            <div className="grid justify-items-end">
+              <Button
+                onClick={() => {
+                  console.log("clicked next");
+                  handleAnswer(selectedAnswer);
+                }}
+              >
+                {"Next"}
+              </Button>
+            </div>
+          </FormControl>
+        </form>
+      </CardBody>
+    </Card>
   );
 };
 

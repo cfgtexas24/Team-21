@@ -9,26 +9,26 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Quiz from "./components/lessons/Quiz";
 import { mockQuestions } from "./mockData/questions";
-import Navbar from "./components/Navbar";
+import SignUpButtons from "./components/SignUpButtons";
+// import Navbar from "./components/Navbar";
 import Chatroom from "./components/Chatroom";
 import MenteeHome from "./components/Menteehome";
 
 function App() {
-  return (
-    <>
-      <Router>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/housing_form" element={<Emergency />} />
-          <Route path="/mentor_form" element={<Mentor />} />
-          <Route path="/mentee_form" element={<Mentee />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/lesson" element={<Quiz questions={mockQuestions} />} />
-        </Routes>
-      </Router>
-    </>
-  )
+  <Router>
+    <Routes>
+      <Route index element={<Home />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/housing_form" element={<Emergency />} />
+      <Route path="/mentor_form" element={<Mentor />} />
+      <Route path="mentee_form" element={<Mentee />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/signup_redirect" element={<SignUpButtons />} />
+      <Route path="/chat" element={<Chatroom />} />
+      <Route path="/mentee-home" element={<MenteeHome />} />
+      <Route path="/lesson" element={<Quiz questions={mockQuestions} />} />
+    </Routes>
+  </Router>;
 }
 export default App;

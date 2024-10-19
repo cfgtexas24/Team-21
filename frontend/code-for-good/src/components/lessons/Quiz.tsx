@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import QuizQuestion from "./QuizQuestion";
 import { IQuestion } from "@/types/Types";
+import { Heading } from "@chakra-ui/react";
 
 interface QuizProps {
   questions: IQuestion[];
@@ -19,14 +20,14 @@ const Quiz = ({ questions }: QuizProps) => {
 
   if (active >= questions.length) {
     return (
-      <div className="quiz-end-screen">
-        <p>Score: {score + "/" + questions.length}</p>
+      <div className="quiz-container justify-center">
+        <Heading>Score: {score + "/" + questions.length}</Heading>
       </div>
     );
   }
 
   return (
-    <div className="quiz-container">
+    <div className="quiz-container justify-center">
       {questions.map((question, index) => {
         if (index === active) {
           return (
