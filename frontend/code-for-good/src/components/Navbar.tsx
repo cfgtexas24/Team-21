@@ -7,11 +7,10 @@ const Navbar: React.FC = () => {
     <Flex
       align="center"
       justify="space-between"
-      padding="1.5rem"
+      padding="1em"
       bg="teal.500"
       color="white"
       width="100%"
-      position="sticky"
       top="0"
       zIndex="1000"
       left="0"

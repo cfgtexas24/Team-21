@@ -53,8 +53,8 @@ const Emergency = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-col w-full justify-center items-center gap-4">
-        <div className="flex w-2/3 flex-col gap-4 items-center">
+      <div className="flex flex-col justify-center items-center gap-4 my-20">
+        <div className="flex flex-col w-1/2 gap-4 justify-center items-center text-center">
           <h1 className="font-bold">Get Help from STORM</h1>
           <p>
             STORM Center of Hope & Service is here for you. Fill out the form

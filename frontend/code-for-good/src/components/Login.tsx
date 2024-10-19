@@ -59,6 +59,14 @@ const LogIn = () => {
               </Link>
             </Text>
           </VStack>
+          <div className="flex flex-col mt-6 mb-4 items-center gap-4">
+            <p>Don't have an account?</p>
+            <Link to="/signup">
+              <Button>
+                Sign Up
+              </Button>
+            </Link>
+          </div>
         </Box>
       </Box>
     </div>
