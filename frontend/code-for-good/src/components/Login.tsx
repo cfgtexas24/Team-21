@@ -96,13 +96,13 @@ const LogIn = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <Button colorScheme="teal" onClick={handleSubmit}>
+              <Button bg="#002982" color = "white" onClick={handleSubmit}>
                 Log In
               </Button>
               <Text fontSize="sm" textAlign="center">
                 Don't have an account?{" "}
                 <Link to="/signup_redirect">
-                  <ChakraLink color="teal.500">Sign Up</ChakraLink>
+                  <ChakraLink color="#002982">Sign Up</ChakraLink>
                 </Link>
               </Text>
             </VStack>

@@ -36,7 +36,7 @@ const MenteeHome = () => {
             fontSize="4xl"
             textAlign="center"
             fontWeight="bold"
-            color="teal"
+            color="#002982"
           >
             Welcome to the Mentee Home Page!
           </Text>
@@ -67,7 +67,7 @@ const MenteeHome = () => {
               </CardBody>
               <CardFooter>
                 <Link to="/skillgame">
-                  <Button colorScheme="teal">Play Games</Button>
+                  <Button bg="#002982" color="white">Play Games</Button>
                 </Link>
               </CardFooter>
             </Card>
@@ -92,7 +92,7 @@ const MenteeHome = () => {
                 </CardBody>
                 <CardFooter>
                   <Link to="/chat">
-                    <Button colorScheme="teal">Start Video Chat</Button>
+                    <Button bg="#002982" color="white">Start Video Chat</Button>
                   </Link>
                 </CardFooter>
               </Card>
@@ -107,7 +107,7 @@ const MenteeHome = () => {
                   </VStack>
                 </CardBody>
                 <CardFooter>
-                  <Button colorScheme="teal" onClick={openModal}>
+                  <Button bg="#002982" color="white" onClick={openModal}>
                     {" "}
                     {/* Open the modal */}
                     Schedule Chat
@@ -125,7 +125,7 @@ const MenteeHome = () => {
                 </CardBody>
                 <CardFooter>
                   <Link to="/chat">
-                    <Button colorScheme="teal">Join Chat Room</Button>
+                    <Button bg="#002982" color="white">Join Chat Room</Button>
                   </Link>
                 </CardFooter>
               </Card>

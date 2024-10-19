@@ -35,14 +35,14 @@ const SignUpButtons = () => {
 
             {/* Mentor Form Button */}
             <Link to="/mentor_form">
-              <Button colorScheme="teal" width="100%">
+              <Button bg="#002982" color="white" width="100%">
                 Mentor Form
               </Button>
             </Link>
 
             {/* Mentee Form Button */}
             <Link to="/mentee_form">
-              <Button colorScheme="teal" width="100%">
+              <Button bg="#002982" color="white" width="100%">
                 Mentee Form
               </Button>
             </Link>

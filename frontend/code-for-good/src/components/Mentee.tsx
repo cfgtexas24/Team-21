@@ -297,7 +297,7 @@ const Mentee = () => {
               git
             </Stack>
 
-            <Button colorScheme="teal" type="submit">
+            <Button bg="#002982" color = "white" type="submit">
               Submit
             </Button>
           </VStack>
