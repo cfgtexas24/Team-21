@@ -11,7 +11,7 @@ import SignUpButtons from "./components/SignUpButtons";
 import Navbar from "./components/Navbar";
 import Chatroom from "./components/Chatroom";
 import MenteeHome from "./components/Menteehome";
-
+import Skillgame from "./components/skillgame";
 function App() {
   return (
     <Router>
@@ -26,6 +26,7 @@ function App() {
         <Route path="/signup_redirect" element={<SignUpButtons />} />
         <Route path="/chat" element={<Chatroom />} />
         <Route path="/mentee_home" element={<MenteeHome />} />
+        <Route path="/skillgame" element={<Skillgame />} />
       </Routes>
     </Router>
   );
