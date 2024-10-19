@@ -47,9 +47,14 @@ const LogIn = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button colorScheme="teal" onClick={handleSubmit}>
-              Submit
-            </Button>
+            <Link
+              to="/mentee_home"
+              className="flex justify-center items-center"
+            >
+              <Button colorScheme="teal" onClick={handleSubmit}>
+                Submit
+              </Button>
+            </Link>
             {/*Making link to redirect user to sign up instead*/}
             {/** Make text asking Don't have an account?  (SignUp) link redirects u to  */}
             <Text fontSize="sm" textAlign="center" className="my-4">

@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@chakra-ui/react";
 import Chat from "./Chat";
-import Navbar from "./Navbar";
+import Navbar2 from "./Navbar2";
 
 const Chatroom = () => {
   const [activeTab, setActiveTab] = useState("chat");
 
   return (
     <>
-      <Navbar />
-      <div className="flex rounded border m-4 p-2 h-96">
+      <Navbar2 />
+      <div className="flex rounded border m-4 p-2 h-[35em]">
         <div className="flex flex-col border-r gap-4 p-4">
           <Button onClick={() => setActiveTab("chat")}>Chat Room</Button>
           <Button onClick={() => setActiveTab("video")}>
