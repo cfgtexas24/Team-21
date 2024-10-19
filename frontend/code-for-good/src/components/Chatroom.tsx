@@ -81,7 +81,7 @@ const Chatroom = () => {
   return (
     <>
       <Navbar2 />
-      <div className="flex rounded border m-4 p-2 h-[40em]">
+      <div className="flex rounded border m-4 p-2 h-[35em]">
         <div className="flex flex-col border-r gap-4 p-4">
           <Button onClick={() => setActiveTab("chat")} colorScheme="teal">
             Chat Room
