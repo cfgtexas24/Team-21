@@ -11,7 +11,6 @@ const Navbar: React.FC = () => {
       bg="teal.500"
       color="white"
       width="100%"
-      position="sticky"
       top="0"
       zIndex="1000"
       left="0"

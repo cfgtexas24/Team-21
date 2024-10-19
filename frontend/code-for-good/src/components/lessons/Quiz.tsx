@@ -34,7 +34,7 @@ const Quiz = ({ topic, questions, resources }: QuizProps) => {
   }
 
   return (
-    <div className="quiz-container">
+    <div className="quiz-container justify-center">
       {questions.map((question, index) => {
         if (index === active) {
           return (
