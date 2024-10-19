@@ -10,7 +10,8 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { Card, CardBody, CardFooter } from "@chakra-ui/react";
-import Navbar from "./Navbar";
+
+import Navbar2 from "./Navbar2";
 
 const MenteeHome = () => {
   const handleVideoChat = () => {
@@ -31,7 +32,7 @@ const MenteeHome = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar2 />
       <Box
         width="100%"
         height="130vh"
@@ -67,7 +68,9 @@ const MenteeHome = () => {
             <Card variant="outline" maxW="sm" alignSelf="center" boxShadow="md">
               <CardBody>
                 <VStack spacing={3} align="stretch">
-                  <Heading size="md" alignSelf="center">Play Games</Heading>
+                  <Heading size="md" alignSelf="center">
+                    Play Games
+                  </Heading>
                   <Text>
                     Engage in fun and educational games to enhance your learning
                     experience.
