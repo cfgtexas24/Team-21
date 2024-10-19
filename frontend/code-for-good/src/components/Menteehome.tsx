@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import { Card, CardBody, CardFooter } from "@chakra-ui/react";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
 
 const MenteeHome = () => {
   const handleVideoChat = () => {
