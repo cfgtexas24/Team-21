@@ -61,7 +61,7 @@ const EventRegister: React.FC = () => {
                 </option>
               </Select>
             </FormControl>
-            <Button colorScheme="teal" width="full">
+            <Button colorScheme="blue" width="full">
               Register
             </Button>
           </VStack>
