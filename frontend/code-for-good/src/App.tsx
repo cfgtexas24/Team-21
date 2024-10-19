@@ -8,14 +8,14 @@ import Login from "./components/Login";
 function App() {
   return (
     <>
-      <Router>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/housing_form" element={<Emergency />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </Router>
+        <Router>
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/housing_form" element={<Emergency />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </Router>
     </>
   );
 }
