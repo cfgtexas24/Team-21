@@ -7,6 +7,7 @@ import Mentor from "./components/Mentor";
 import Mentee from "./components/Mentee";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import SignUpButtons from "./components/SignUpButtons";
 import Navbar from "./components/Navbar";
 import Chatroom from "./components/Chatroom";
 import MenteeHome from "./components/Menteehome";
@@ -22,6 +23,7 @@ function App() {
         <Route path="mentee_form" element={<Mentee />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup_redirect" element={<SignUpButtons />} />
         <Route path="/chat" element={<Chatroom />} />
         <Route path="/mentee-home" element={<MenteeHome />} />
       </Routes>
