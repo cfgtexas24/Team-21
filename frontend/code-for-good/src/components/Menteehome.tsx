@@ -10,7 +10,8 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { Card, CardBody, CardFooter } from "@chakra-ui/react";
-import Navbar from "./Navbar";
+
+import Navbar2 from "./Navbar2";
 
 const MenteeHome = () => {
   const handleVideoChat = () => {
@@ -31,7 +32,7 @@ const MenteeHome = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar2 />
       <Box
         width="100%"
         height="130vh"

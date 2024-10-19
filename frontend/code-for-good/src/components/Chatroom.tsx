@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Box, Button, VStack } from "@chakra-ui/react";
 import Chat from "./Chat";
-import Navbar from "./Navbar";
+import Navbar2 from "./Navbar2";
 
 const Chatroom = () => {
   const [activeTab, setActiveTab] = useState("chat");
@@ -80,7 +80,7 @@ const Chatroom = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar2 />
       <Box
         width="100%"
         height="100vh"
