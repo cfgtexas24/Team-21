@@ -1,27 +1,28 @@
-// import { YouTubeVideo } from "@/types/Types";
+import Navbar from "../Navbar";
+import { Question, Resource } from "@/types/Types";
+import { Text } from "@chakra-ui/react";
+import Quiz from "./Quiz";
+interface LessonProps {
+  topic: string;
+  questions: Question[];
+  resources: Resource[];
+  // resources
+}
 
-// interface LessonProps {
-//   videos: YouTubeVideo[];
-// }
+const Lesson = ({ topic, questions, resources }: LessonProps) => {
+  return (
+    <div className="">
+      <Navbar />
+      <div className="container h-screen">
+        <Text fontSize="xl" className="flex justify-center p-5">
+          {topic}
+        </Text>
+        <div className="container mx-auto w-1/2">
+          <Quiz topic={topic} questions={questions} resources={resources} />
+        </div>
+      </div>
+    </div>
+  );
+};
 
-// const Lesson = ({ videos }: LessonProps) => {
-//   return (
-//     <div>
-//       <ul>
-//         {videos.map((video) => (
-//           <li key={video.id}>
-//             <h3>{video.snippet.title}</h3>
-//             <iframe
-//               width="560"
-//               height="315"
-//               src={`https://www.youtube.com/embed/${video.snippet.}`}
-//               allowFullScreen
-//             ></iframe>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Lesson;
+export default Lesson;

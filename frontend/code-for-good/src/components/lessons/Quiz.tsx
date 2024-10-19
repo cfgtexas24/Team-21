@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import QuizQuestion from "./QuizQuestion";
-import { IQuestion } from "@/types/Types";
+import { Question, Resource } from "@/types/Types";
+import ScoreSummary from "./ScoreSummary";
 
 interface QuizProps {
-  questions: IQuestion[];
+  topic: string;
+  questions: Question[];
+  resources: Resource[];
 }
 
-const Quiz = ({ questions }: QuizProps) => {
+const Quiz = ({ topic, questions, resources }: QuizProps) => {
   const [score, setScore] = useState<number>(0);
   const [active, setActive] = useState<number>(0);
 
@@ -20,7 +23,12 @@ const Quiz = ({ questions }: QuizProps) => {
   if (active >= questions.length) {
     return (
       <div className="quiz-end-screen">
-        <p>Score: {score + "/" + questions.length}</p>
+        <ScoreSummary
+          topic={topic}
+          score={score}
+          total={questions.length}
+          resources={resources}
+        />
       </div>
     );
   }

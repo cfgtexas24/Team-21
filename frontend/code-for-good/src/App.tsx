@@ -7,11 +7,9 @@ import Mentor from "./components/Mentor";
 import Mentee from "./components/Mentee";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import Quiz from "./components/lessons/Quiz";
 import { mockQuestions } from "./mockData/questions";
-import Navbar from "./components/Navbar";
-import Chatroom from "./components/Chatroom";
-import MenteeHome from "./components/Menteehome";
+import Lesson from "./components/lessons/Lesson";
+import { mockResources } from "./mockData/resources";
 
 function App() {
   return (
@@ -25,10 +23,19 @@ function App() {
           <Route path="/mentee_form" element={<Mentee />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/lesson" element={<Quiz questions={mockQuestions} />} />
+          <Route
+            path="/lesson"
+            element={
+              <Lesson
+                topic={"Financial Literacy"}
+                questions={mockQuestions}
+                resources={mockResources}
+              />
+            }
+          />
         </Routes>
       </Router>
     </>
-  )
+  );
 }
 export default App;
