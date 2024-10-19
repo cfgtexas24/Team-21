@@ -21,7 +21,7 @@ const Home = () => {
         bg="5176C8"
         maxWidth="350px"
         textAlign="center"
-        marginBottom="2rem"
+        marginBottom="10rem"
       >
         <VStack spacing={4}>
           <Heading as="h1" size="2xl" color="#002982" textShadow="1px 1px">
