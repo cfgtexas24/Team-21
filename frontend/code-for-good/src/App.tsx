@@ -15,6 +15,8 @@ import Chatroom from "./components/Chatroom";
 import MenteeHome from "./components/Menteehome";
 import Skillgame from "./components/Skillgame";
 import EventPage from "./components/Eventpage";
+import { mockCookingQuestions } from "./mockData/cookingQuestions";
+import { mockCookingResources } from "./mockData/cookingResources";
 
 function App() {
   return (
@@ -32,12 +34,22 @@ function App() {
         <Route path="/mentee_home" element={<MenteeHome />} />
         <Route path="/skillgame" element={<Skillgame />} />
         <Route
-          path="/lesson"
+          path="/lesson1"
           element={
             <Lesson
               topic={"Financial Literacy"}
               questions={mockFinancialQuestions}
               resources={mockResources}
+            />
+          }
+        />
+        <Route
+          path="/lesson2"
+          element={
+            <Lesson
+              topic={"Cooking"}
+              questions={mockCookingQuestions}
+              resources={mockCookingResources}
             />
           }
         />

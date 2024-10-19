@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import QuizQuestion from "./QuizQuestion";
 import { Question, Resource } from "@/types/Types";
 import ScoreSummary from "./ScoreSummary";
+import ProgressBar from "./ProgressBar";
 
 interface QuizProps {
-  topic: string;
-  questions: Question[];
-  resources: Resource[];
+  topic: string; // Quiz topic
+  questions: Question[]; // Quiz Questions
+  resources: Resource[]; // Quiz Resources
   setPassed: (bool: boolean) => void;
 }
 
@@ -41,12 +42,15 @@ const Quiz = ({ topic, questions, resources, setPassed }: QuizProps) => {
       {questions.map((question, index) => {
         if (index === active) {
           return (
-            <QuizQuestion
-              key={index}
-              id={index}
-              question={question}
-              handleAnswer={handleAnswer}
-            ></QuizQuestion>
+            <>
+              <QuizQuestion
+                key={index}
+                id={index}
+                question={question}
+                handleAnswer={handleAnswer}
+              ></QuizQuestion>
+              <ProgressBar progress={active} total={questions.length} />
+            </>
           );
         }
       })}
