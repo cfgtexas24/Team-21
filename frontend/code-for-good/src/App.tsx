@@ -9,11 +9,11 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Navbar from "./components/Navbar";
 import Chatroom from "./components/Chatroom";
+import MenteeHome from "./components/Menteehome";
 
 function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route index element={<Home />} />
         <Route path="/" element={<Home />} />
@@ -23,6 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/chat" element={<Chatroom />} />
+        <Route path="/mentee-home" element={<MenteeHome />} />
       </Routes>
     </Router>
   );

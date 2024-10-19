@@ -66,12 +66,12 @@ button:focus-visible {
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 20vh;
 }
 
 .home-content {
   background-color: rgba(255, 255, 255, 0.8); 
   padding: 20px;
   border-radius: 10px;
-  margin-bottom: 20vh;
   align-items: center;
 }
