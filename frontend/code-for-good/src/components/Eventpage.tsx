@@ -13,6 +13,7 @@ import Navbar from "./Navbar";
 import Firstpicture from "../assets/placeholder1.jpeg";
 import Secondpicture from "../assets/placeholder2.jpeg";
 import Thirdpicture from "../assets/placeholder3.jpeg";
+import { Link } from "react-router-dom";
 
 const EventPage: React.FC = () => {
   return (
