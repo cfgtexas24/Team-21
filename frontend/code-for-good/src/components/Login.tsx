@@ -39,7 +39,8 @@ const LogIn = () => {
           duration: 3000,
           isClosable: true,
         });
-        navigate("/mentee_home");
+        if (data.des === "admin") navigate("/admin_home");
+        else navigate("/mentee_home");
       } else {
         toast({
           title: "Login Failed",

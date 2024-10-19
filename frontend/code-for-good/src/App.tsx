@@ -19,6 +19,7 @@ import MenteeHome from "./components/Menteehome";
 import Skillgame from "./components/Skillgame";
 import EventPage from "./components/Eventpage";
 import EventRegister from "./components/EventRegister";
+import Admin from "./components/Admin";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/signup_redirect" element={<SignUpButtons />} />
         <Route path="/chat" element={<Chatroom />} />
         <Route path="/mentee_home" element={<MenteeHome />} />
+        <Route path="/admin_home" element={<Admin />} />
         <Route path="/skillgame" element={<Skillgame />} />
         <Route path="/events/register" element={<EventRegister />} />
         <Route
