@@ -5,7 +5,7 @@ import { Server } from "socket.io";
 import dotenv from "dotenv";
 import cors from "cors";
 import bodyParser from "body-parser";
-import mongoose from "mongoose";
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
 const app = express();
 const server = http.createServer(app);
@@ -17,31 +17,35 @@ const io = new Server(server, {
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
 
 dotenv.config();
 
-// MongoDB connection
-const MONGODB_URI = 'mongodb://localhost:27017/emergency_requests';
+app.post('/api/login', async (req, res) => {
+  const { username, password } = req.body;
 
-mongoose.connect(MONGODB_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Error connecting to MongoDB:', err));
+  run();
 
-// Define a schema for the emergency request
-const EmergencyRequestSchema = new mongoose.Schema({
-  firstName: String,
-  lastName: String,
-  email: String,
-  phone: String,
-  address: String,
-  city: String,
-  state: String,
-  zip: String,
-  additionalInfo: String,
-  createdAt: { type: Date, default: Date.now }
+  const database = client.db('CFG-Users');
+  const usersCollection = database.collection('Users');
+
+  try {
+    const user = await usersCollection.findOne({ email: username });
+    
+    if (!user) {
+      return res.status(401).json({ success: false, message: 'User not found' });
+    }
+
+    if (user.password !== password) {
+      return res.status(401).json({ success: false, message: 'Invalid password' });
+    }
+    res.json({ success: true, message: 'Login successful' });
+
+  } catch (error) {
+    console.error('Error during login:', error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
 });
-
-const EmergencyRequest = mongoose.model('EmergencyRequest', EmergencyRequestSchema);
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -52,39 +56,21 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/send-sms', async (req, res) => {
-    try {
-        // Save to MongoDB
-        const newRequest = new EmergencyRequest(req.body);
-        await newRequest.save();
+  try {
+      const mailOptions = {
+          from: process.env.EMAIL_USER,
+          to: '9729922662@mms.cricketwireless.net',
+          subject: '',
+          text: req.body.msg,
+      };
 
-        // Prepare email/SMS message
-        const message = `
-            New Emergency Request:
-            Name: ${req.body.firstName} ${req.body.lastName}
-            Contact: ${req.body.phone}, ${req.body.email}
-            Location: ${req.body.address}, ${req.body.city}, ${req.body.state} ${req.body.zip}
-            Additional Info: ${req.body.additionalInfo}
-        `;
+      const info = await transporter.sendMail(mailOptions);
+      console.log('Email sent: ' + info.response);
 
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: '9729922662@mms.cricketwireless.net',
-            subject: 'New Emergency Request',
-            text: message,
-        };
-
-        // Send email
-        const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent: ' + info.response);
-
-        res.status(200).json({ success: true, message: 'Request saved and notification sent' });
-
-        // Emit a socket event for real-time updates
-        io.emit('newEmergencyRequest', newRequest);
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ success: false, message: 'An error occurred' });
-    }
+  } catch (error) {
+      console.error('Error:', error);
+      res.status(500).json({ success: false, message: 'An error occurred' });
+  }
 });
 
 io.on('connection', (socket) => {
@@ -99,6 +85,30 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(5174, () => {
-    console.log(`Server running at http://172.20.10.3:5174`);
+const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cfg-users.r8hu0.mongodb.net/?retryWrites=true&w=majority&appName=CFG-Users`;
+
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    await client.connect();
+
+    await client.db("admin").command({ ping: 1 });
+
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } catch (error) {
+    
+    console.log("Mongo error: " + error);
+  }
+}
+
+const PORT = 5174;
+app.listen(PORT, () => {
+  console.log(`Server running on http://172.20.10.3:${PORT}`);
 });

@@ -20,16 +20,16 @@ const LogIn = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:5174/api/login', {
-        method: 'POST',
+      const response = await fetch("http://172.20.10.3:5174/api/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, password }),
       });
-      
+
       const data = await response.json();
-      console.log('Full server response:', data);
+      console.log("Full server response:", data);
 
       if (data.success) {
         toast({
@@ -39,7 +39,7 @@ const LogIn = () => {
           duration: 3000,
           isClosable: true,
         });
-        navigate('http://localhost:5173/mentee_home');
+        navigate("/mentee_home");
       } else {
         toast({
           title: "Login Failed",
@@ -57,7 +57,7 @@ const LogIn = () => {
         duration: 3000,
         isClosable: true,
       });
-      console.error('Login error:', error);
+      console.error("Login error:", error);
     }
 
     setUsername("");
@@ -106,7 +106,7 @@ const LogIn = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <Button bg="#002982" color = "white" onClick={handleSubmit}>
+                <Button bg="#002982" color="white" onClick={handleSubmit}>
                   Log In
                 </Button>
                 <Text fontSize="sm" textAlign="center">
