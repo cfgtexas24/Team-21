@@ -126,7 +126,7 @@ const Chatroom = () => {
               </motion.div>
               <Button
                 onClick={createOffer}
-                colorScheme="teal"
+                bg="#002982" color="white"
                 width="40%"
                 marginTop="4"
               >
