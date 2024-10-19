@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import Chatroom from "./components/Chatroom";
 import MenteeHome from "./components/Menteehome";
 import Skillgame from "./components/skillgame";
+import EventPage from "./components/Eventpage";
 function App() {
   return (
     <Router>
@@ -27,6 +28,7 @@ function App() {
         <Route path="/chat" element={<Chatroom />} />
         <Route path="/mentee_home" element={<MenteeHome />} />
         <Route path="/skillgame" element={<Skillgame />} />
+        <Route path="/events" element={<EventPage />} />
       </Routes>
     </Router>
   );
