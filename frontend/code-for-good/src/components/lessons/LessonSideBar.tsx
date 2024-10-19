@@ -1,21 +1,21 @@
-import { YouTubeVideo } from "@/types/Types";
+// import { YouTubeVideo } from "@/types/Types";
 
-interface LessonSideBarProps {
-  videos: YouTubeVideo[];
-}
+// interface LessonSideBarProps {
+//   videos: YouTubeVideo[];
+// }
 
-const LessonSideBar = ({ videos }: LessonSideBarProps) => {
-  return (
-    <div>
-      <ul>
-        {videos.map((video) => (
-          <li key={video.id}>
-            <p>{video.snippet.title}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+// const LessonSideBar = ({ videos }: LessonSideBarProps) => {
+//   return (
+//     <div>
+//       <ul>
+//         {videos.map((video) => (
+//           <li key={video.id}>
+//             <p>{video.snippet.title}</p>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
 
-export default LessonSideBar;
+// export default LessonSideBar;

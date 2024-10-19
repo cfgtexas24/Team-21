@@ -10,13 +10,12 @@ import {
   Heading,
   CardBody,
 } from "@chakra-ui/react";
+import { Question } from "@/types/Types";
 
 interface QuizQuestionProps {
   key: number;
   id: number;
-  question: string;
-  answers: string[];
-  correctAnswer: number;
+  question: Question;
   handleAnswer: (answer: number) => void;
 }
 
@@ -24,7 +23,6 @@ const QuizQuestion = ({
   id,
   key,
   question,
-  answers,
   handleAnswer,
 }: QuizQuestionProps) => {
   const [selectedAnswer, setSelectedAnswer] = useState<number>(0);
@@ -38,11 +36,21 @@ const QuizQuestion = ({
           id={"q-" + key}
           className="quiz-question quiz-container rounded-md border-solid border-black"
         >
-          <p className="question-body">{question}</p>
+          <p className="question-body">{question.body}</p>
+          {question.video && (
+            <iframe
+              className="p-10"
+              width="560"
+              height="315"
+              src={question.video}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            ></iframe>
+          )}
           <FormControl>
-            <RadioGroup defaultValue={answers[0]}>
+            <RadioGroup defaultValue={question.answers[0]}>
               <Stack direction="column">
-                {answers.map((answer, index) => {
+                {question.answers.map((answer, index) => {
                   return (
                     <Radio
                       name={"answer"}
