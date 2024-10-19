@@ -7,13 +7,14 @@ import Mentor from "./components/Mentor";
 import Mentee from "./components/Mentee";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import { mockQuestions } from "./mockData/questions";
+import { mockFinancialQuestions } from "./mockData/questions";
 import Lesson from "./components/lessons/Lesson";
 import { mockResources } from "./mockData/resources";
 import SignUpButtons from "./components/SignUpButtons";
 import Chatroom from "./components/Chatroom";
 import MenteeHome from "./components/Menteehome";
 import Skillgame from "./components/Skillgame";
+import EventPage from "./components/Eventpage";
 
 function App() {
   return (
@@ -35,11 +36,12 @@ function App() {
           element={
             <Lesson
               topic={"Financial Literacy"}
-              questions={mockQuestions}
+              questions={mockFinancialQuestions}
               resources={mockResources}
             />
           }
         />
+        <Route path="/events" element={<EventPage />} />
       </Routes>
     </Router>
   );

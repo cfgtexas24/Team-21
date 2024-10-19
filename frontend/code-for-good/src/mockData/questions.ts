@@ -1,5 +1,5 @@
 import { Question } from "@/types/Types";
-export const mockQuestions: Question[] = [
+export const mockFinancialQuestions: Question[] = [
   {
     body: "What percentage of your income is recommended to save for future goals?",
     answers: ["5%", "10%", "20%", "50%"],

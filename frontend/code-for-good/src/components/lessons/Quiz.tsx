@@ -42,9 +42,7 @@ const Quiz = ({ topic, questions, resources }: QuizProps) => {
             <QuizQuestion
               key={index}
               id={index}
-              question={question.body}
-              answers={question.answers}
-              correctAnswer={question.correctAnswer}
+              question={question}
               handleAnswer={handleAnswer}
             ></QuizQuestion>
           );

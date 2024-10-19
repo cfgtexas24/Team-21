@@ -24,7 +24,7 @@ const Home = () => {
         marginBottom="2rem"
       >
         <VStack spacing={4}>
-          <Heading as="h1" size="2xl" color="teal.500" textShadow="2px 2px">
+          <Heading as="h1" size="2xl" color="teal.500" textShadow="1px 1px">
             STORM
           </Heading>
           <Text fontSize="lg" color="gray.600" fontStyle="italic">
