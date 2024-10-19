@@ -11,10 +11,10 @@ import { mockQuestions } from "./mockData/questions";
 import Lesson from "./components/lessons/Lesson";
 import { mockResources } from "./mockData/resources";
 import SignUpButtons from "./components/SignUpButtons";
-import Navbar from "./components/Navbar";
 import Chatroom from "./components/Chatroom";
 import MenteeHome from "./components/Menteehome";
-import Skillgame from "./components/skillgame";
+import Skillgame from "./components/Skillgame";
+
 function App() {
   return (
     <Router>

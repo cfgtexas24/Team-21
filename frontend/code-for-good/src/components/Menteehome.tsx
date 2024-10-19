@@ -1,6 +1,5 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import {
   Box,
   Button,
@@ -10,25 +9,14 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { Card, CardBody, CardFooter } from "@chakra-ui/react";
-
 import Navbar2 from "./Navbar2";
+import ScheduleModal from "./Schedule"; // Import the ScheduleModal
 
 const MenteeHome = () => {
-  const handleVideoChat = () => {
-    // Handle 1-1 video chat logic here
-  };
+  const [modalIsOpen, setModalIsOpen] = useState(false); // State to manage modal visibility
 
-  const handleScheduleChat = () => {
-    // Handle scheduling video chat logic here
-  };
-
-  const handleChatRoom = () => {
-    // Handle chat room logic here
-  };
-
-  const handleGames = () => {
-    // Handle games logic here
-  };
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
 
   return (
     <>
@@ -79,9 +67,7 @@ const MenteeHome = () => {
               </CardBody>
               <CardFooter>
                 <Link to="/skillgame">
-                  <Button colorScheme="teal" onClick={handleGames}>
-                    Play Games
-                  </Button>
+                  <Button colorScheme="teal">Play Games</Button>
                 </Link>
               </CardFooter>
             </Card>
@@ -106,9 +92,7 @@ const MenteeHome = () => {
                 </CardBody>
                 <CardFooter>
                   <Link to="/chat">
-                    <Button colorScheme="teal" onClick={handleVideoChat}>
-                      Start Video Chat
-                    </Button>
+                    <Button colorScheme="teal">Start Video Chat</Button>
                   </Link>
                 </CardFooter>
               </Card>
@@ -123,7 +107,9 @@ const MenteeHome = () => {
                   </VStack>
                 </CardBody>
                 <CardFooter>
-                  <Button colorScheme="teal" onClick={handleScheduleChat}>
+                  <Button colorScheme="teal" onClick={openModal}>
+                    {" "}
+                    {/* Open the modal */}
                     Schedule Chat
                   </Button>
                 </CardFooter>
@@ -139,9 +125,7 @@ const MenteeHome = () => {
                 </CardBody>
                 <CardFooter>
                   <Link to="/chat">
-                    <Button colorScheme="teal" onClick={handleChatRoom}>
-                      Join Chat Room
-                    </Button>
+                    <Button colorScheme="teal">Join Chat Room</Button>
                   </Link>
                 </CardFooter>
               </Card>
@@ -149,6 +133,8 @@ const MenteeHome = () => {
           </Box>
         </VStack>
       </Box>
+      <ScheduleModal isOpen={modalIsOpen} closeModal={closeModal} />{" "}
+      {/* Include the modal */}
     </>
   );
 };
