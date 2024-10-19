@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar2 from "./Navbar2";
+import Navbar from "./Navbar";
 
 const AdminPage = () => {
   const [mentees, setMentees] = useState([]);
@@ -25,7 +25,7 @@ const AdminPage = () => {
 
   return (
     <>
-      <Navbar2 />
+      <Navbar />
       <div className="p-8">
         <h1 className="text-3xl font-bold mb-6">Admin Page: User Management</h1>
 
