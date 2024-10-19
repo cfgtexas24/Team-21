@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
         <Link href="/mentee_home">
           <Button>Home</Button>
         </Link>
-        <Link href="/housing_form">
+        <Link href="/housing_form2">
           <Button>Emergency Housing</Button>
         </Link>
         <Link href="/chat">
