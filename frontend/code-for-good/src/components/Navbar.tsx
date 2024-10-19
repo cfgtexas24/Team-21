@@ -28,6 +28,9 @@ const Navbar: React.FC = () => {
         <Link href="/housing_form">
           <Button>Emergency Housing</Button>
         </Link>
+        <Link href="/events">
+          <Button>Events</Button>
+        </Link>
       </HStack>
     </Flex>
   );

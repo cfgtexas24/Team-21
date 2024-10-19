@@ -15,6 +15,7 @@ import Navbar from "./components/Navbar";
 import Chatroom from "./components/Chatroom";
 import MenteeHome from "./components/Menteehome";
 import Skillgame from "./components/skillgame";
+import EventPage from "./components/Eventpage";
 function App() {
   return (
     <Router>
@@ -40,6 +41,7 @@ function App() {
             />
           }
         />
+        <Route path="/events" element={<EventPage />} />
       </Routes>
     </Router>
   );

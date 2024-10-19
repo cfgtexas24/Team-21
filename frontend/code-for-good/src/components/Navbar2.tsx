@@ -31,6 +31,9 @@ const Navbar: React.FC = () => {
         <Link href="/chat">
           <Button>Chat & Video</Button>
         </Link>
+        <Link href="/events">
+          <Button>Events</Button>
+        </Link>
       </HStack>
     </Flex>
   );
