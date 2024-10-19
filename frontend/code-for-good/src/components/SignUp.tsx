@@ -1,4 +1,5 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import {
   FormControl,
   FormLabel,
@@ -12,27 +13,40 @@ import {
   Radio,
   RadioGroup,
   HStack,
+  Button,
 } from "@chakra-ui/react";
 
 function SignUp() {
+  const {
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm();
+
+  function onSubmit(values: object) {
+    // insert into database
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        alert(JSON.stringify(values, null, 2));
+        resolve(1);
+      }, 3000);
+    });
+  }
+
   return (
-    <div className="flex flex-col">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
       <p className="text-3xl">Sign Up</p>
-      <FormControl
-        className="grid grid-cols-12 space-x-1.5 p-3 gap-y-3"
-        isRequired
-      >
-        <div className="col-span-6">
+      <FormControl className="grid grid-cols-12 p-3 gap-x-1 gap-y-3">
+        <FormControl className="col-span-6">
           <FormLabel>First Name</FormLabel>
           <Input type="text" aria-label="first name" />
-        </div>
+        </FormControl>
 
-        <div className="col-span-6">
+        <FormControl className="col-span-6">
           <FormLabel>Last Name</FormLabel>
           <Input type="text" aria-label="last name" />
-        </div>
+        </FormControl>
 
-        <div className="col-span-12">
+        <FormControl className="col-span-12">
           <FormLabel>Age</FormLabel>
           <NumberInput max={28} min={14}>
             <NumberInputField />
@@ -41,33 +55,51 @@ function SignUp() {
               <NumberDecrementStepper />
             </NumberInputStepper>
           </NumberInput>
-        </div>
+        </FormControl>
 
-        <div className="col-span-12">
+        <FormControl className="col-span-12">
           <FormLabel>Gender</FormLabel>
           <Select placeholder="Select Gender">
             <option>Man</option>
             <option>Woman</option>
             <option>Other</option>
           </Select>
-        </div>
+        </FormControl>
 
-        <div className="col-span-6">
+        <FormControl className="col-span-12">
+          <FormLabel>Email</FormLabel>
+          <Input
+            placeholder="example@email.com"
+            type="text"
+            aria-label="last name"
+          />
+        </FormControl>
+
+        <FormControl className="col-span-12">
+          <FormLabel>Phone Number</FormLabel>
+          <Input
+            placeholder="+1 (123)-456-7890"
+            type="text"
+            aria-label="last name"
+          />
+        </FormControl>
+
+        <FormControl className="col-span-6">
           <FormLabel>City</FormLabel>
           <Input type="text" aria-label="last name" />
-        </div>
+        </FormControl>
 
-        <div className="col-span-6">
+        <FormControl className="col-span-6">
           <FormLabel>State</FormLabel>
           <Input type="text" aria-label="last name" />
-        </div>
+        </FormControl>
 
-        <div className="col-span-12">
+        <FormControl className="col-span-12 space-x-1">
           <FormLabel>Zip Code</FormLabel>
           <Input type="text" aria-label="last name" />
-        </div>
+        </FormControl>
 
-        <div className="col-span-6">
+        <FormControl className="col-span-6">
           <FormLabel>Housing Status</FormLabel>
           <RadioGroup defaultValue="Unsheltered">
             <HStack spacing="24px">
@@ -75,9 +107,12 @@ function SignUp() {
               <Radio value="Sheltered">Sheltered</Radio>
             </HStack>
           </RadioGroup>
-        </div>
+        </FormControl>
       </FormControl>
-    </div>
+      <Button mt={4} isLoading={isSubmitting} type="submit">
+        Submit
+      </Button>
+    </form>
   );
 }
 
