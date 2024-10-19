@@ -39,13 +39,34 @@ app.post('/api/login', async (req, res) => {
     if (user.password !== password) {
       return res.status(401).json({ success: false, message: 'Invalid password' });
     }
-    res.json({ success: true, message: 'Login successful' });
+    res.json({ success: true, message: 'Login successful', des: user.designation, name: user.name });
 
   } catch (error) {
     console.error('Error during login:', error);
     res.status(500).json({ success: false, message: 'Server error' });
   }
 });
+
+app.get('/api/users', async (req, res) => {
+  try {
+    await client.connect();
+    const database = client.db('CFG-Users');
+    const usersCollection = database.collection('Users');
+
+    // Fetch all users categorized by roles
+    const mentees = await usersCollection.find({ designation: 'mentee' }).toArray();
+    const mentors = await usersCollection.find({ designation: 'mentor' }).toArray();
+    const admins = await usersCollection.find({ designation: 'admin' }).toArray();
+
+    res.status(200).json({ mentees, mentors, admins });
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    res.status(500).json({ message: 'Error fetching users' });
+  } finally {
+    await client.close();
+  }
+});
+
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
