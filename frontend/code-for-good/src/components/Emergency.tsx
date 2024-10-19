@@ -24,7 +24,6 @@ const Emergency = () => {
   const [additionalInfo, setAdditionalInfo] = useState("");
 
   const onSubmit = async (e: any) => {
-    e.preventDefault();
     const msg =
       `!!ALERT!! STORM Emergency Housing Request\n` +
       `Name: ${firstName} ${lastName}\n` +
