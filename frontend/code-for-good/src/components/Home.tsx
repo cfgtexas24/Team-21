@@ -7,7 +7,7 @@ const Home = () => {
       <div className="home-content flex flex-col gap-6">
         <Box paddingTop="4.5rem">
           <VStack spacing={6}>
-            <Text fontSize="3xl" textDecoration="underline">
+            <Text fontSize="3xl">
               STORM
             </Text>
             <Box>
