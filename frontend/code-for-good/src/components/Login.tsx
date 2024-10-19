@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button, Input, Text, VStack } from "@chakra-ui/react";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,6 +44,14 @@ const LogIn = () => {
               Submit
             </Button>
           </VStack>
+          <div className="flex flex-col mt-6 mb-4 items-center gap-4">
+            <p>Don't have an account?</p>
+            <Link to="/signup">
+              <Button>
+                Sign Up
+              </Button>
+            </Link>
+          </div>
         </Box>
       </Box>
     </div>
