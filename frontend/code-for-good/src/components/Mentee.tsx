@@ -31,12 +31,13 @@ import {
   Card,
   Text,
   Flex,
+  InputRightElement,
+  Select,
 } from "@chakra-ui/react";
 import React from "react";
 
 const Mentee = () => {
-  // Define state variables for each form field
-  // Define state variables for each form field
+  // Define state variables for form fields including gender, password, and sheltered status
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -45,7 +46,10 @@ const Mentee = () => {
     city: "",
     state: "",
     age: "",
-    additionalInfo: "", // Added for the additional information field
+    additionalInfo: "",
+    gender: "",
+    password: "",
+    shelteredStatus: "1", // Default to "Unsheltered"
   });
 
   // Define state for the checkboxes
@@ -87,6 +91,9 @@ const Mentee = () => {
       state: "",
       age: "",
       additionalInfo: "",
+      gender: "",
+      password: "",
+      shelteredStatus: "",
     });
 
     // Reset checkbox values
@@ -95,6 +102,10 @@ const Mentee = () => {
       stormProgram: false,
     });
   };
+
+  // for password hiding
+  const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
 
   return (
     <>
@@ -147,8 +158,26 @@ const Mentee = () => {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
+                placeholder="example@email.com"
               />
             </FormControl>
+
+            {/**Password for user */}
+            <InputGroup size="md">
+              <Input
+                pr="4.5rem"
+                name="password"
+                type={show ? "text" : "password"}
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter password"
+              />
+              <InputRightElement width="4.5rem">
+                <Button h="1.75rem" size="sm" onClick={handleClick}>
+                  {show ? "Hide" : "Show"}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
 
             <InputGroup>
               <InputLeftAddon>+1</InputLeftAddon>
@@ -157,7 +186,7 @@ const Mentee = () => {
                 type="tel"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                placeholder="phone number"
+                placeholder="Phone number"
               />
             </InputGroup>
 
@@ -199,6 +228,38 @@ const Mentee = () => {
                   <NumberDecrementStepper />
                 </NumberInputStepper>
               </NumberInput>
+            </FormControl>
+
+            <FormControl>
+              <FormLabel>Gender</FormLabel>
+              <Select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                placeholder="Select Gender"
+              >
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+              </Select>
+            </FormControl>
+
+            <FormControl>
+              <FormLabel>Sheltered Status</FormLabel>
+              <RadioGroup
+                name="shelteredStatus"
+                value={formData.shelteredStatus}
+                onChange={(value) =>
+                  setFormData((prevData) => ({
+                    ...prevData,
+                    shelteredStatus: value,
+                  }))
+                }
+              >
+                <Stack direction="row">
+                  <Radio value="unsheltered">Unsheltered</Radio>
+                  <Radio value="sheltered">Sheltered</Radio>
+                </Stack>
+              </RadioGroup>
             </FormControl>
 
             <Stack spacing={5} direction="column">
