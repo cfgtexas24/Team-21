@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { Card, CardBody, CardFooter } from "@chakra-ui/react";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 const MenteeHome = () => {
   const handleVideoChat = () => {
@@ -102,9 +103,11 @@ const MenteeHome = () => {
                   </VStack>
                 </CardBody>
                 <CardFooter>
-                  <Button colorScheme="teal" onClick={handleVideoChat}>
-                    Start Video Chat
-                  </Button>
+                  <Link to="/chat">
+                    <Button colorScheme="teal" onClick={handleVideoChat}>
+                      Start Video Chat
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
               <Card variant="outline" boxShadow="md">
@@ -133,9 +136,11 @@ const MenteeHome = () => {
                   </VStack>
                 </CardBody>
                 <CardFooter>
-                  <Button colorScheme="teal" onClick={handleChatRoom}>
-                    Join Chat Room
-                  </Button>
+                  <Link to="/chat">
+                    <Button colorScheme="teal" onClick={handleChatRoom}>
+                      Join Chat Room
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             </SimpleGrid>

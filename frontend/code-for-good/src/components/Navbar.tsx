@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, HStack, Link, Image } from "@chakra-ui/react";
+import { Box, Flex, HStack, Link, Image, Button } from "@chakra-ui/react";
 import stormLogo from "../assets/storm.png"; // Adjust the path as necessary
 
 const Navbar: React.FC = () => {
@@ -22,8 +22,12 @@ const Navbar: React.FC = () => {
         </Link>
       </Box>
       <HStack spacing="24px">
-        <Link href="/">Home</Link>
-        <Link href="/housing_form">Emergency Housing</Link>
+        <Link href="/">
+          <Button>Home</Button>
+        </Link>
+        <Link href="/housing_form">
+          <Button>Emergency Housing</Button>
+        </Link>
       </HStack>
     </Flex>
   );
