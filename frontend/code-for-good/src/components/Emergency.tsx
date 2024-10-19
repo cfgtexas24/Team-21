@@ -1,66 +1,79 @@
 import React from "react";
-import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
 const Emergency = () => {
   return (
-    <div className="flex flex-col w-full justify-center items-center gap-4">
-      <div className="flex w-2/3 flex-col gap-4 items-center">
-        <h1 className="font-bold">Get Help from STORM</h1>
-        <p className="">
+    <Box
+      paddingTop="4.5rem"
+      width="100%"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      gap={4}
+    >
+      <VStack width="66%" spacing={4} alignItems="center">
+        <Text fontSize="2xl" fontWeight="bold">
+          Get Help from STORM
+        </Text>
+        <Text textAlign="center">
           STORM Center of Hope & Service is here for you. Fill out the form
           below if you need IMMEDIATE housing assistance. We will contact you
           within 24 hours with more information.
-        </p>
-      </div>
-      <div className="flex flex-col w-2/3 gap-4">
-        <FormControl isRequired className="flex flex-col gap-4">
-          <div>
-            <FormLabel>First Name</FormLabel>
-            <Input type="name" placeholder="Jane" />
-          </div>
-          <div>
-            <FormLabel>Last Name</FormLabel>
-            <Input type="name" placeholder="Doe" />
-          </div>
-          <div>
-            <FormLabel>Email address</FormLabel>
-            <Input type="email" placeholder="example@gmail.com" />
-          </div>
-          <div>
-            <FormLabel>Phone</FormLabel>
-            <Input type="phone" placeholder="+1 (123) 456-7890" />
-          </div>
+        </Text>
+      </VStack>
+      <VStack width="66%" spacing={4}>
+        <FormControl isRequired>
+          <FormLabel>First Name</FormLabel>
+          <Input type="text" placeholder="Jane" />
         </FormControl>
-        <FormControl className="flex flex-col gap-4">
-          <div>
-            <FormLabel>Current Address</FormLabel>
-            <Input type="text" />
-          </div>
-          <div>
-            <FormLabel>Current City</FormLabel>
-            <Input type="text" />
-          </div>
-          <div>
-            <FormLabel>Current State</FormLabel>
-            <Input type="text" />
-          </div>
-          <div>
-            <FormLabel>Current Zip Code</FormLabel>
-            <Input type="text" />
-          </div>
+        <FormControl isRequired>
+          <FormLabel>Last Name</FormLabel>
+          <Input type="text" placeholder="Doe" />
         </FormControl>
-        <FormControl isRequired className="flex flex-col gap-4">
-          <div>
-            <FormLabel>
-              Please provide us with any additional information you would like
-              us to know about you.
-            </FormLabel>
-            <Input type="text" />
-          </div>
+        <FormControl isRequired>
+          <FormLabel>Email address</FormLabel>
+          <Input type="email" placeholder="example@gmail.com" />
         </FormControl>
-        <Button>Submit</Button>
-      </div>
-    </div>
+        <FormControl isRequired>
+          <FormLabel>Phone</FormLabel>
+          <Input type="tel" placeholder="+1 (123) 456-7890" />
+        </FormControl>
+        <FormControl>
+          <FormLabel>Current Address</FormLabel>
+          <Input type="text" />
+        </FormControl>
+        <FormControl>
+          <FormLabel>Current City</FormLabel>
+          <Input type="text" />
+        </FormControl>
+        <FormControl>
+          <FormLabel>Current State</FormLabel>
+          <Input type="text" />
+        </FormControl>
+        <FormControl>
+          <FormLabel>Current Zip Code</FormLabel>
+          <Input type="text" />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>
+            Please provide us with any additional information you would like us
+            to know about you.
+          </FormLabel>
+          <Input type="text" />
+        </FormControl>
+        <Button colorScheme="teal" type="submit">
+          Submit
+        </Button>
+      </VStack>
+    </Box>
   );
 };
 
